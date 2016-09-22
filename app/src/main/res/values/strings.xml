@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Sumula Eletronica</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity__jogador_c">Jogador</string>
+
+
+    <!-- Jogadores -->
+    <string name="altura">Altura</string>
+    <string name="nome">Nome</string>
+    <string name="titulo_jogador"> Dados do jogador </string>
+    <string name="consumir_webservice">Consumir WebService</string>
+
+
 </resources>
