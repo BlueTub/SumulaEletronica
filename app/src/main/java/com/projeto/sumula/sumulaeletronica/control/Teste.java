@@ -1,4 +1,4 @@
-package com.projeto.sumula.sumulaeletronica;
+package com.projeto.sumula.sumulaeletronica.control;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class Teste {
     public void teste () {
         lista = new ArrayList<String>();
 
-        lista.stream().count();
+       // lista.stream().count();
 
         lista.add("aa");
 
