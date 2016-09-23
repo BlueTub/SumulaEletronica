@@ -5,11 +5,20 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.projeto.sumula.sumulaeletronica"
-        minSdkVersion 19
+        minSdkVersion 24
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions {
+            enabled true
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
     }
     buildTypes {
         release {
