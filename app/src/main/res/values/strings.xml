@@ -9,6 +9,7 @@
     <string name="nome">Nome</string>
     <string name="titulo_jogador"> Dados do jogador </string>
     <string name="consumir_webservice">Consumir WebService</string>
+    <string name="title_activity_teste">Teste</string>
 
 
 </resources>
