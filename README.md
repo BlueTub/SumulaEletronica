@@ -6,9 +6,9 @@ SÃO PAULO 2016
 
 ## Autores
 
-HURY GABRIEL A.B DE JESUS<br>
-PEDRO ZUZI<br>
-THIAGO LEONETTE DA CRUZ<br>
+[HURY GABRIEL A.B DE JESUS](https://github.com/BlueTub)<br>
+[PEDRO ZUZI](https://github.com/PedroZZ)<br>
+[THIAGO LEONETTE DA CRUZ](https://github.com/thiagoleonette)<br>
 
 
 ## Introdução
