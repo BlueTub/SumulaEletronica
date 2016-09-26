@@ -1,6 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Pedro on 25/09/2016.
@@ -16,6 +17,7 @@ public class Clube {
     private int qtdJogadores;
     private String UF;
     private Estadio estadio;
+    private List<Participacao> participacoes;
 
     public String getId() {
         return id;

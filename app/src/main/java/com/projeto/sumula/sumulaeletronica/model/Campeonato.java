@@ -11,10 +11,9 @@ public class Campeonato {
 
     private String nome;
     private Date ano;
-    private List<Jogador> jogadores;
-    private List<Clube> clubes;
     private List<Partida> partidas;
     private List<Inscricao> inscricoes;
+    private List<Participacao> participacoes;
 
     public List<Inscricao> getInscricoes() {
         return inscricoes;
@@ -40,27 +39,19 @@ public class Campeonato {
         this.nome = nome;
     }
 
-    public List<Jogador> getJogadores() {
-        return jogadores;
-    }
-
-    public void setJogadores(List<Jogador> jogadores) {
-        this.jogadores = jogadores;
-    }
-
-    public List<Clube> getClubes() {
-        return clubes;
-    }
-
-    public void setClubes(List<Clube> clubes) {
-        this.clubes = clubes;
-    }
-
     public List<Partida> getPartidas() {
         return partidas;
     }
 
     public void setPartidas(List<Partida> partidas) {
         this.partidas = partidas;
+    }
+
+    public List<Participacao> getParticipacoes() {
+        return participacoes;
+    }
+
+    public void setParticipacoes(List<Participacao> participacoes) {
+        this.participacoes = participacoes;
     }
 }

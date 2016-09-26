@@ -1,6 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Pedro on 25/09/2016.
@@ -16,9 +17,9 @@ public class Sumula {
     private Date segundoTempoAcrescimos;
     private String descricao;
     private String observacao;
-    private Cartao cartao;
-    private Gol gol;
-    private Substituicao substituicao;
+    private List<Cartao> cartoes;
+    private List<Gol> gols;
+    private List<Substituicao> substituicoes;
 
     public Date getPrimeioroTempoInicio() {
         return primeioroTempoInicio;
@@ -92,27 +93,27 @@ public class Sumula {
         this.observacao = observacao;
     }
 
-    public Cartao getCartao() {
-        return cartao;
+    public List<Cartao> getCartoes() {
+        return cartoes;
     }
 
-    public void setCartao(Cartao cartao) {
-        this.cartao = cartao;
+    public void setCartoes(List<Cartao> cartoes) {
+        this.cartoes = cartoes;
     }
 
-    public Gol getGol() {
-        return gol;
+    public List<Gol> getGols() {
+        return gols;
     }
 
-    public void setGol(Gol gol) {
-        this.gol = gol;
+    public void setGols(List<Gol> gols) {
+        this.gols = gols;
     }
 
-    public Substituicao getSubstituicao() {
-        return substituicao;
+    public List<Substituicao> getSubstituicoes() {
+        return substituicoes;
     }
 
-    public void setSubstituicao(Substituicao substituicao) {
-        this.substituicao = substituicao;
+    public void setSubstituicoes(List<Substituicao> substituicoes) {
+        this.substituicoes = substituicoes;
     }
 }
