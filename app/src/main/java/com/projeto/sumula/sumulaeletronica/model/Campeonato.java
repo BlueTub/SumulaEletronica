@@ -14,6 +14,15 @@ public class Campeonato {
     private List<Jogador> jogadores;
     private List<Clube> clubes;
     private List<Partida> partidas;
+    private List<Inscricao> inscricoes;
+
+    public List<Inscricao> getInscricoes() {
+        return inscricoes;
+    }
+
+    public void setInscricoes(List<Inscricao> inscricoes) {
+        this.inscricoes = inscricoes;
+    }
 
     public Date getAno() {
         return ano;
