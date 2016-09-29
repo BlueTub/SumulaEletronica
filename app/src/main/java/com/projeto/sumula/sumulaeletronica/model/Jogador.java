@@ -1,5 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
+import java.util.Date;
+
 /**
  * Created by hury_ on 22/09/2016.
 */
@@ -8,7 +10,10 @@ public class Jogador {
 
     public String nome;
     public String apelido;
-    /*private boolean valid;
+    public Date datanasc;
+    public float peso;
+    public float altura;
+    public String naturalidade;
 
 
     public String getNome() {
@@ -27,12 +32,49 @@ public class Jogador {
         this.apelido = apelido;
     }
 
-    public boolean isValid() {
-        return valid;
+    public float getPeso() {
+        return peso;
     }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
+    public void setPeso(float peso) {
+        this.peso = peso;
     }
-*/
+
+    public Date getDatanasc() {
+        return datanasc;
+    }
+
+    public void setDatanasc(Date datanasc) {
+        this.datanasc = datanasc;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+
+    public String getNaturalidade() {
+        return naturalidade;
+    }
+
+    public void setNaturalidade(String naturalidade) {
+        this.naturalidade = naturalidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Jogador{" +
+                "nome='" + nome + '\'' +
+                ", apelido='" + apelido + '\'' +
+                ", datanasc=" + datanasc +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", naturalidade='" + naturalidade + '\'' +
+                '}';
+    }
+
+
 }
