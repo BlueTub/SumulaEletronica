@@ -10,14 +10,15 @@ import java.util.List;
 public class Clube {
 
     private String id;
-    private Date dataFundacao;
+    private String dataFundacao;
     private String nome;
-    private String fundador;
-    private String titulos;
-    private int qtdJogadores;
+  //  private String fundador;
+  //  private String titulos;
+  //  private int qtdJogadores;
     private String UF;
-    private Estadio estadio;
-    private List<Participacao> participacoes;
+  //  private Estadio estadio;
+  //  private List<Participacao> participacoes;
+
 
     public String getId() {
         return id;
@@ -27,11 +28,11 @@ public class Clube {
         this.id = id;
     }
 
-    public Date getDataFundacao() {
+    public String getDataFundacao() {
         return dataFundacao;
     }
 
-    public void setDataFundacao(Date dataFundacao) {
+    public void setDataFundacao(String dataFundacao) {
         this.dataFundacao = dataFundacao;
     }
 
@@ -43,43 +44,11 @@ public class Clube {
         this.nome = nome;
     }
 
-    public String getTitulos() {
-        return titulos;
-    }
-
-    public void setTitulos(String titulos) {
-        this.titulos = titulos;
-    }
-
-    public String getFundador() {
-        return fundador;
-    }
-
-    public void setFundador(String fundador) {
-        this.fundador = fundador;
-    }
-
-    public int getQtdJogadores() {
-        return qtdJogadores;
-    }
-
-    public void setQtdJogadores(int qtdJogadores) {
-        this.qtdJogadores = qtdJogadores;
-    }
-
     public String getUF() {
         return UF;
     }
 
     public void setUF(String UF) {
         this.UF = UF;
-    }
-
-    public Estadio getEstadio() {
-        return estadio;
-    }
-
-    public void setEstadio(Estadio estadio) {
-        this.estadio = estadio;
     }
 }
