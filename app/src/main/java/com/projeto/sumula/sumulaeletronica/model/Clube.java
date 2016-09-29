@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Clube {
 
-    private String id;
+    private long id;
     private String dataFundacao;
     private String nome;
   //  private String fundador;
@@ -20,11 +20,11 @@ public class Clube {
   //  private List<Participacao> participacoes;
 
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
