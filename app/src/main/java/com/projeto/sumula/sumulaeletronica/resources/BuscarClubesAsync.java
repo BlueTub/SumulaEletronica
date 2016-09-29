@@ -3,15 +3,12 @@ package com.projeto.sumula.sumulaeletronica.resources;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.services.ClubeServices;
 import com.projeto.sumula.sumulaeletronica.util.ClubeDes;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +23,7 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
 
     private Context context;
     private static final String TAG = "RETROFIT ";
+    private List <Clube> listaClube;
 
     public BuscarClubesAsync(Context context) {
         this.context = context;
@@ -51,9 +49,9 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
         listaClubeService.enqueue(new Callback<List<Clube>>() {
             @Override
             public void onResponse(Call<List<Clube>> call, Response<List<Clube>> response) {
-                List<Clube> clube = response.body();
+                listaClube = response.body();
 
-                for (Clube c : clube) {
+                for (Clube c : listaClube) {
                     Log.i(TAG, c.getNome());
                 }
 
@@ -65,5 +63,9 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
             }
         });
         return null;
+    }
+
+    public List<Clube> listaDeClubes(){
+        return listaClube;
     }
 }
