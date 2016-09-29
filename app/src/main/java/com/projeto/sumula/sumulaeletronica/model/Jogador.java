@@ -14,7 +14,7 @@ public class Jogador {
     public float peso;
     public float altura;
     public String naturalidade;
-
+//
 
     public String getNome() {
         return nome;
