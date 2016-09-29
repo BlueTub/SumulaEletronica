@@ -8,12 +8,12 @@ import java.util.Date;
 
 public class Jogador {
 
-    public String nome;
-    public String apelido;
-    public Date datanasc;
-    public float peso;
-    public float altura;
-    public String naturalidade;
+    private String nome;
+    private String apelido;
+    private String datanasc;
+    private float peso;
+    private float altura;
+    private String naturalidade;
 //
 
     public String getNome() {
@@ -40,11 +40,11 @@ public class Jogador {
         this.peso = peso;
     }
 
-    public Date getDatanasc() {
+    public String getDatanasc() {
         return datanasc;
     }
 
-    public void setDatanasc(Date datanasc) {
+    public void setDatanasc(String datanasc) {
         this.datanasc = datanasc;
     }
 
