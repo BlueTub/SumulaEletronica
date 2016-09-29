@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        botao = (Button) findViewById(R.id.button);
+        botao = (Button) findViewById(R.id.btnTorcedor);
         botao.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 //Intent intent = new Intent(MainActivity.this, ViewJogador.class);
