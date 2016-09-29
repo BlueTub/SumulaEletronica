@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i(TAG, "----------");
                             }
                         } else {
+
                             //Requisição retornou com erro
                             Log.i("TAG", "ERRO " + response.code());
                         }
