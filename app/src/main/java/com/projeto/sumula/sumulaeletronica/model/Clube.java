@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by Pedro on 25/09/2016.
  */
 
-public class Clube {
+public class Clube implements Serializable{
 
     private long id;
     private String dataFundacao;

@@ -13,6 +13,6 @@ import retrofit2.http.GET;
 
 public interface ClubeServices {
 
-    @GET("buscarTodos")
-    Call<List<Clube>> buscarTodos();
+    @GET("listarTodos")
+    Call<List<Clube>> listarTodos();
 }

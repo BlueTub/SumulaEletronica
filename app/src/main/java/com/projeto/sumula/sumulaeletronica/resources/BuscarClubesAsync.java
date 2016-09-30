@@ -8,6 +8,8 @@ import com.google.gson.GsonBuilder;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.services.ClubeServices;
 import com.projeto.sumula.sumulaeletronica.util.ClubeDes;
+
+import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,8 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
 
     private Context context;
-    private static final String TAG = "RETROFIT ";
-    private List <Clube> listaClube;
+    public static final String TAG = "RETROFIT";
 
     public BuscarClubesAsync(Context context) {
         this.context = context;
@@ -32,7 +33,7 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        String url = "http://192.168.0.22:8080/RestFul/clube/listarTodos";
+        String url = "http://192.168.0.14:8080/RestFul/clube/listarTodos/";
 
         Gson gsonConverter = new GsonBuilder().registerTypeAdapter(Clube.class, new ClubeDes()).create();
 
@@ -44,16 +45,22 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
 
         ClubeServices services  = retrofit.create(ClubeServices.class);
 
-        Call<List<Clube>> listaClubeService = services.buscarTodos();
+        Call<List<Clube>> listaClubeService = services.listarTodos();
 
         listaClubeService.enqueue(new Callback<List<Clube>>() {
             @Override
             public void onResponse(Call<List<Clube>> call, Response<List<Clube>> response) {
-                listaClube = response.body();
+                List<Clube> clubes = response.body();
 
-                for (Clube c : listaClube) {
-                    Log.i(TAG, c.getNome());
+                if (!clubes.isEmpty()) {
+                    for (Clube c : clubes) {
+                        Log.i(TAG, c.getNome());
+                    }
+                }else{
+                    Log.i("SAPORRA", "TA VAZIA");
                 }
+
+
 
             }
 
@@ -63,9 +70,5 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
             }
         });
         return null;
-    }
-
-    public List<Clube> listaDeClubes(){
-        return listaClube;
     }
 }

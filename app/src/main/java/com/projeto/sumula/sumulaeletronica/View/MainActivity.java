@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         botao = (Button) findViewById(R.id.btnTorcedor);
         botao.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
+               // setContentView(R.layout.activity_clubes);
+
                 Intent intent = new Intent(MainActivity.this, ViewClube.class);
                 startActivity(intent);
 

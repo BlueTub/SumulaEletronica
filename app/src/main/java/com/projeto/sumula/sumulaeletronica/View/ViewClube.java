@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
@@ -21,14 +22,16 @@ public class ViewClube extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+       // setContentView(R.layout.activity_clubes);
+
         BuscarClubesAsync basync = new BuscarClubesAsync(this);
         basync.execute();
 
-        lista = basync.listaDeClubes();
+       // lista = basync.listaDeClubes();
 
-        GridView gv = (GridView) findViewById(R.id.gvClubes);
+        //GridView gv = (GridView) findViewById(R.id.gvClubes);
 
-        gv.setAdapter(new AdaptadorGridViewClube(this, lista));
+       // gv.setAdapter(new AdaptadorGridViewClube(this, lista));
 
     }
 }
