@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class Estadio {
-
+/*
     private String nome;
     private String endereco;
     private int capacidade;
@@ -15,6 +15,12 @@ public class Estadio {
     private String telefone;
     private String proprietario;
     private String UF;
+*/
+    private String nome;
+    private String uf;
+    private int capacidade;
+    private String dataInauguracao;
+    private String endereco;
 
     public String getNome() {
         return nome;
@@ -24,12 +30,12 @@ public class Estadio {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getUf() {
+        return uf;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     public int getCapacidade() {
@@ -40,35 +46,31 @@ public class Estadio {
         this.capacidade = capacidade;
     }
 
-    public Date getDataInauguracao() {
+    public String getDataInauguracao() {
         return dataInauguracao;
     }
 
-    public void setDataInauguracao(Date dataInauguracao) {
+    public void setDataInauguracao(String dataInauguracao) {
         this.dataInauguracao = dataInauguracao;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getProprietario() {
-        return proprietario;
+    @Override
+    public String toString() {
+        return "Estadio{" +
+                "nome='" + nome + '\'' +
+                ", uf='" + uf + '\'' +
+                ", capacidade=" + capacidade +
+                ", dataInauguracao='" + dataInauguracao + '\'' +
+                ", endereco='" + endereco + '\'' +
+                '}';
     }
 
-    public void setProprietario(String proprietario) {
-        this.proprietario = proprietario;
-    }
-
-    public String getUF() {
-        return UF;
-    }
-
-    public void setUF(String UF) {
-        this.UF = UF;
-    }
 }

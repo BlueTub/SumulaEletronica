@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
+import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorService;
 
@@ -33,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                // setContentView(R.layout.activity_clubes);
 
-                Intent intent = new Intent(MainActivity.this, ViewClube.class);
-                startActivity(intent);
+               // Intent intent = new Intent(MainActivity.this, ViewClube.class);
+               // startActivity(intent);
 
               //  JogadorJson j = new JogadorJson();
                // j.pesquisa();
+
+                ClubeJson c = new ClubeJson();
+                c.pesquisa();
 
             }
         });

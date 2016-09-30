@@ -10,33 +10,20 @@ import java.util.List;
 
 public class Clube implements Serializable{
 
-    private long id;
-    private String dataFundacao;
-    private String nome;
+   // private long id;
+   // private String dataFundacao;
+   // private String nome;
   //  private String fundador;
   //  private String titulos;
   //  private int qtdJogadores;
-    private String UF;
-    private int caminho;
-  //  private Estadio estadio;
+   // private String UF;
+   // private int caminho;
+   // private Estadio estadio;
   //  private List<Participacao> participacoes;
 
-
-    public int getCaminho() {
-        return caminho;
-    }
-
-    public void setCaminho(int caminho) {
-        this.caminho = caminho;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    private String dataFundacao;
+    private String nome;
+    private Estadio estadio;
 
     public String getDataFundacao() {
         return dataFundacao;
@@ -54,11 +41,20 @@ public class Clube implements Serializable{
         this.nome = nome;
     }
 
-    public String getUF() {
-        return UF;
+    public Estadio getEstadio() {
+        return estadio;
     }
 
-    public void setUF(String UF) {
-        this.UF = UF;
+    public void setEstadio(Estadio estadio) {
+        this.estadio = estadio;
+    }
+
+    @Override
+    public String toString() {
+        return "Clube{" +
+                "dataFundacao='" + dataFundacao + '\'' +
+                ", nome='" + nome + '\'' +
+                ", estadio=" + estadio +
+                '}';
     }
 }
