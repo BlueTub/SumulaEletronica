@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -30,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         botao = (Button) findViewById(R.id.btnTorcedor);
         botao.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                //Intent intent = new Intent(MainActivity.this, ViewJogador.class);
-                //startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ViewClube.class);
+                startActivity(intent);
 
-                JogadorJson j = new JogadorJson();
-                j.pesquisa();
+              //  JogadorJson j = new JogadorJson();
+               // j.pesquisa();
 
             }
         });

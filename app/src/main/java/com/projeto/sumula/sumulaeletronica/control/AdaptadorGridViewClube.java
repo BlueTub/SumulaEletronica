@@ -36,7 +36,7 @@ public class AdaptadorGridViewClube extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return lista.get(position).getId();
+        return position;
     }
 
     @Override

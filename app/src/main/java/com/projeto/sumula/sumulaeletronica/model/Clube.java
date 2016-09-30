@@ -16,9 +16,18 @@ public class Clube {
   //  private String titulos;
   //  private int qtdJogadores;
     private String UF;
+    private int caminho;
   //  private Estadio estadio;
   //  private List<Participacao> participacoes;
 
+
+    public int getCaminho() {
+        return caminho;
+    }
+
+    public void setCaminho(int caminho) {
+        this.caminho = caminho;
+    }
 
     public long getId() {
         return id;

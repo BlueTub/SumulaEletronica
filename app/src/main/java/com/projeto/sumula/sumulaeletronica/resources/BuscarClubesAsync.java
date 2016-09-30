@@ -32,7 +32,7 @@ public class BuscarClubesAsync extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        String url = "";
+        String url = "http://192.168.0.22:8080/RestFul/clube/listarTodos";
 
         Gson gsonConverter = new GsonBuilder().registerTypeAdapter(Clube.class, new ClubeDes()).create();
 
