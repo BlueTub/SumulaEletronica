@@ -4,9 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projeto.sumula.sumulaeletronica.model.Clube;
+import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 
 import java.util.List;
 
@@ -17,21 +19,21 @@ import java.util.List;
 public class AdaptadorGridViewClube extends BaseAdapter {
 
     private Context context;
-    List<Clube> lista;
+    private ListaClubes listaClubes;
 
-    public AdaptadorGridViewClube(Context context, List<Clube> lista) {
+    public AdaptadorGridViewClube(Context context, ListaClubes listaClubes) {
         this.context = context;
-        this.lista = lista;
+        this.listaClubes = listaClubes;
     }
 
     @Override
     public int getCount() {
-        return lista.size();
+        return listaClubes.clube.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return lista.get(position);
+        return listaClubes.clube.get(position);
     }
 
     @Override
@@ -42,7 +44,13 @@ public class AdaptadorGridViewClube extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView tv = new TextView(context);
-        tv.setText(lista.get(position).getNome());
+        tv.setText(listaClubes.clube.get(position).getNome());
         return tv;
+
+
+//        ImageView iv = new ImageView(context);
+//        iv.setAdjustViewBounds(true);
+//        iv.setImageResource(lista[position]);
+//        return iv;
     }
 }

@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
               //  JogadorJson j = new JogadorJson();
                // j.pesquisa();
 
-                ClubeJson c = new ClubeJson();
-                c.pesquisa();
+                Intent intent = new Intent(MainActivity.this, ViewClube.class);
+                startActivity(intent);
 
             }
         });
