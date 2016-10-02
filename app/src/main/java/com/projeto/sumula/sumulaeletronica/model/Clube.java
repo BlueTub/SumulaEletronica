@@ -24,6 +24,15 @@ public class Clube implements Serializable{
     private String dataFundacao;
     private String nome;
     private Estadio estadio;
+    private int imagem;
+
+    public int getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(int imagem) {
+        this.imagem = imagem;
+    }
 
     public String getDataFundacao() {
         return dataFundacao;
@@ -56,5 +65,21 @@ public class Clube implements Serializable{
                 ", nome='" + nome + '\'' +
                 ", estadio=" + estadio +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Clube clube = (Clube) o;
+
+        return nome.equals(clube.nome);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return nome.hashCode();
     }
 }
