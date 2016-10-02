@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
+
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
@@ -38,8 +42,18 @@ public class ViewClube extends AppCompatActivity {
         GridView gv = (GridView) findViewById(R.id.gvClubes);
 
         try {
-            if (listaClubes != null)
+            if (listaClubes != null) {
                 gv.setAdapter(new AdaptadorGridViewClube(this, listaClubes));
+                gv.setOnItemClickListener(new GridView.OnItemClickListener(){
+                    @Override
+                    public void onItemClick(AdapterView parent, View view, int position, long id) {
+                        Toast.makeText(getBaseContext(),
+                                listaClubes.clube.get(position).getNome(),
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
+            }
         } catch (NullPointerException e) {
             Log.i("catch", "NULA");
         }
