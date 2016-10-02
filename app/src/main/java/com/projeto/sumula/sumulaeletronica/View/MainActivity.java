@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ClubeJson c = new ClubeJson();
+        c.pesquisa();
+
         botao = (Button) findViewById(R.id.btnTorcedor);
         botao.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){

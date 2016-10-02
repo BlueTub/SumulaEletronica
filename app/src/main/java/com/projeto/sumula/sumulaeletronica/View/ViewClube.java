@@ -35,9 +35,6 @@ public class ViewClube extends AppCompatActivity {
 
        // lista = basync.listaDeClubes();
 
-        ClubeJson c = new ClubeJson();
-        c.pesquisa();
-
         GridView gv = (GridView) findViewById(R.id.gvClubes);
 
         try {
