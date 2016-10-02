@@ -34,11 +34,6 @@ public class ViewClube extends AppCompatActivity {
 
         lista = new int[] {R.drawable.bo, R.drawable.sp, R.drawable.co, R.drawable.pa, R.drawable.sa};
 
-       // BuscarClubesAsync basync = new BuscarClubesAsync(this);
-       // basync.execute();
-
-       // lista = basync.listaDeClubes();
-
         GridView gv = (GridView) findViewById(R.id.gvClubes);
 
         try {
