@@ -6,6 +6,7 @@ package com.projeto.sumula.sumulaeletronica.enumeration;
 
 public enum BaseURL {
 
+    //Caminho do WebService
     URL("http://192.168.1.14:8080/RestFul/");
 
     public String caminho;
