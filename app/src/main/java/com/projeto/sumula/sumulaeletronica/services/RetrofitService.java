@@ -1,4 +1,4 @@
-package com.projeto.sumula.sumulaeletronica.persistence;
+package com.projeto.sumula.sumulaeletronica.services;
 
 import com.projeto.sumula.sumulaeletronica.model.RespostaServidor;
 

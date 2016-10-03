@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
+import com.projeto.sumula.sumulaeletronica.services.JogadorService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
