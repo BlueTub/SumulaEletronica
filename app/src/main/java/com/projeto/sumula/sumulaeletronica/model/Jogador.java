@@ -8,13 +8,21 @@ import java.util.Date;
 
 public class Jogador {
 
+    private int id;
     private String nome;
     private String apelido;
     private String datanasc;
     private float peso;
     private float altura;
     private String naturalidade;
-//
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -67,14 +75,13 @@ public class Jogador {
     @Override
     public String toString() {
         return "Jogador{" +
-                "nome='" + nome + '\'' +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
                 ", apelido='" + apelido + '\'' +
-                ", datanasc=" + datanasc +
+                ", datanasc='" + datanasc + '\'' +
                 ", peso=" + peso +
                 ", altura=" + altura +
                 ", naturalidade='" + naturalidade + '\'' +
                 '}';
     }
-
-
 }
