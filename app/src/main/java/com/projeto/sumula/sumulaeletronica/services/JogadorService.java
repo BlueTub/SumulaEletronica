@@ -23,8 +23,8 @@ public interface JogadorService {
     @GET("jogador/listarTodos")
     Call<ListaJogadores> listCatalog();
 
-    @GET("jogador/{id}") //TODO
-    Call<List<Jogador>> buscarJogadoresClube(@Path("id") int id );
+    @GET("jogador/listaPorClube/{id}")
+    Call<ListaJogadores> listaPorClube(@Path("id") int id );
 
 
 

@@ -66,11 +66,11 @@ public class JogadorJson {
                 .build();
 
         JogadorService service = retrofit.create(JogadorService.class);
-        Call<List<Jogador>> jogadorCall = service.buscarJogadoresClube(id);
+        Call<ListaJogadores> jogadorCall = service.listaPorClube(id);
 
-        jogadorCall.enqueue(new Callback<List<Jogador>>() {
+        jogadorCall.enqueue(new Callback<ListaJogadores>() {
             @Override
-            public void onResponse(Call<List<Jogador>> call, Response<List<Jogador>> response) {
+            public void onResponse(Call<ListaJogadores> call, Response<ListaJogadores> response) {
                 if (response.isSuccessful()) {
                     ViewJogador.jogadores = response.body();
                 } else {
@@ -79,7 +79,7 @@ public class JogadorJson {
             }
 
             @Override
-            public void onFailure(Call<List<Jogador>> call, Throwable t) {
+            public void onFailure(Call<ListaJogadores> call, Throwable t) {
                 Log.e(TAG, "Erro: " + t.getMessage());
             }
         });

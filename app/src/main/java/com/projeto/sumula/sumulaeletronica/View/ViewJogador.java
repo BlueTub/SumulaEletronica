@@ -13,6 +13,7 @@ import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewJogador;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
+import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class ViewJogador extends AppCompatActivity {
 
-    public static List<Jogador> jogadores = new ArrayList<Jogador>();
+    public static ListaJogadores jogadores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,12 @@ public class ViewJogador extends AppCompatActivity {
 
     }
 
-    public void construirGrid(List<Jogador> jogadores){
+    public void construirGrid(ListaJogadores jogadores){
         GridView gv = (GridView) findViewById(R.id.gvJogadores);
 
         try {
             if (jogadores != null) {
-                gv.setAdapter(new AdaptadorGridViewJogador(this, jogadores));
+                gv.setAdapter(new AdaptadorGridViewJogador(this, jogadores.jogador));
                 gv.setOnItemClickListener(new GridView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView parent, View view, int position, long id) {

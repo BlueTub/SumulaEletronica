@@ -18,6 +18,7 @@ import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by Pedro on 29/09/2016.
@@ -66,6 +67,7 @@ public class ViewClube extends AppCompatActivity {
                 gv.setOnItemClickListener(new GridView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView parent, View view, int position, long id) {
+                        Log.i("LISTA", String.valueOf(listaClubes.clube.get(position).getId()).toString());
                         JogadorJson json = new JogadorJson();
                         json.pesquisaJogadorClube(listaClubes.clube.get(position).getId());
 
