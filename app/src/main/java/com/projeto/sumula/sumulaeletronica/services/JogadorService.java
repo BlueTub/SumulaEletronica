@@ -3,6 +3,9 @@ package com.projeto.sumula.sumulaeletronica.services;
 import com.projeto.sumula.sumulaeletronica.enumeration.BaseURL;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -21,7 +24,7 @@ public interface JogadorService {
     Call<ListaJogadores> listCatalog();
 
     @GET("jogador/{id}") //TODO
-    Call<Jogador> buscarJogadoresClube( @Path("id") int id );
+    Call<List<Jogador>> buscarJogadoresClube(@Path("id") int id );
 
 
 

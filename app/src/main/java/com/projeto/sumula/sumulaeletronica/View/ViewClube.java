@@ -14,6 +14,8 @@ import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
+import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +66,9 @@ public class ViewClube extends AppCompatActivity {
                 gv.setOnItemClickListener(new GridView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView parent, View view, int position, long id) {
+                        JogadorJson json = new JogadorJson();
+                        json.pesquisaJogadorClube(listaClubes.clube.get(position).getId());
+
                         Intent intent = new Intent(ViewClube.this, ViewJogador.class);
                         startActivity(intent);
                     }

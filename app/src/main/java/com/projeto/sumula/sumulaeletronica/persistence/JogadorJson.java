@@ -2,9 +2,12 @@ package com.projeto.sumula.sumulaeletronica.persistence;
 
 import android.util.Log;
 
+import com.projeto.sumula.sumulaeletronica.View.ViewJogador;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.services.JogadorService;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,6 +54,32 @@ public class JogadorJson {
             @Override
             public void onFailure(Call<ListaJogadores> call, Throwable t) {
                 //ERRO
+                Log.e(TAG, "Erro: " + t.getMessage());
+            }
+        });
+    }
+
+    public void pesquisaJogadorClube(int id){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(JogadorService.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        JogadorService service = retrofit.create(JogadorService.class);
+        Call<List<Jogador>> jogadorCall = service.buscarJogadoresClube(id);
+
+        jogadorCall.enqueue(new Callback<List<Jogador>>() {
+            @Override
+            public void onResponse(Call<List<Jogador>> call, Response<List<Jogador>> response) {
+                if (response.isSuccessful()) {
+                    ViewJogador.jogadores = response.body();
+                } else {
+                    Log.i("TAG", "ERRO " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Jogador>> call, Throwable t) {
                 Log.e(TAG, "Erro: " + t.getMessage());
             }
         });
