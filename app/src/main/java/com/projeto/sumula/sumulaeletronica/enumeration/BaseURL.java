@@ -1,0 +1,18 @@
+package com.projeto.sumula.sumulaeletronica.enumeration;
+
+/**
+ * Created by hury_ on 03/10/2016.
+ */
+
+public enum BaseURL {
+
+    URL("http://192.168.1.14:8080/RestFul/");
+
+    public String caminho;
+
+    BaseURL(String caminho){
+        this.caminho = caminho;
+    }
+
+
+}

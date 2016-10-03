@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.persistence;
 
+import com.projeto.sumula.sumulaeletronica.enumeration.BaseURL;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 
 import retrofit2.Call;
@@ -11,7 +12,7 @@ import retrofit2.http.GET;
 
 public interface ClubeService {
 
-    public static final String BASE_URL= "http://192.168.0.14:8080/RestFul/";
+    public static final String BASE_URL = BaseURL.URL.caminho;
 
     @GET("clube/listarTodos")
     Call<ListaClubes> listCatalog();
