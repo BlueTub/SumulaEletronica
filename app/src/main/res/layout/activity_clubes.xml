@@ -10,7 +10,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/tvEscolha" />
+        android:id="@+id/tvEscolha"
+        android:textSize="24sp" />
 
     <GridView
         android:id="@+id/gvClubes"
@@ -19,8 +20,7 @@
         android:layout_alignEnd="@+id/imPesquisaClube"
         android:layout_alignStart="@+id/etPesquisaClube"
         android:layout_below="@+id/imPesquisaClube"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
+        android:verticalSpacing="20dp"
         android:horizontalSpacing="10dp"/>
 
     <ImageButton
