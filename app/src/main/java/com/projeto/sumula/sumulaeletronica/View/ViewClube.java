@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,6 +38,8 @@ public class ViewClube extends AppCompatActivity {
         imageButton = (ImageButton) findViewById(R.id.imPesquisaClube);
         etPesquisa = (EditText) findViewById(R.id.etPesquisaClube);
 
+        construirGrid(listaClubes);
+
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -50,8 +53,6 @@ public class ViewClube extends AppCompatActivity {
             }
         });
 
-        construirGrid(listaClubes);
-
     }
 
     public void construirGrid(final ListaClubes listaClubes){
@@ -63,10 +64,8 @@ public class ViewClube extends AppCompatActivity {
                 gv.setOnItemClickListener(new GridView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView parent, View view, int position, long id) {
-                        Toast.makeText(getBaseContext(),
-                                listaClubes.clube.get(position).getNome(),
-                                Toast.LENGTH_SHORT)
-                                .show();
+                        Intent intent = new Intent(ViewClube.this, ViewJogador.class);
+                        startActivity(intent);
                     }
                 });
             }
