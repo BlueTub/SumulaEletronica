@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sumula Eletronica</string>
+    <string name="app_name">Súmula Eletrônica</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity__jogador_c">Jogador</string>
 
@@ -10,6 +10,13 @@
     <string name="titulo_jogador"> Dados do jogador </string>
     <string name="consumir_webservice">Consumir WebService</string>
     <string name="title_activity_teste">Teste</string>
+    <string name="title_activity_menu_lateral">Súmula Eletrônica</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

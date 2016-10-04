@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Clube" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Jogador" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Árbitro" />
+        <item
+            android:id="@+id/nav_estadio"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Estádio" />
+        <item
+            android:id="@+id/nav_campeonato"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Campeonato" />
+        <item
+            android:id="@+id/nav_sumula"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Súmula" />
+        <item
+            android:id="@+id/nav_sentenca"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Sentença" />
+        <item
+            android:id="@+id/nav_partidas"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Partidas" />
+    </group>
+
+    <item android:title="Ajuda">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Sobre" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Ajuda e Comentários" />
+        </menu>
+    </item>
+
+</menu>
