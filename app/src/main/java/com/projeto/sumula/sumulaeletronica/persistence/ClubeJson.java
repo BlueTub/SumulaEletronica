@@ -47,7 +47,7 @@ public class ClubeJson extends AsyncTask<Void, Void, ListaClubes>{
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        final ClubeService service = retrofit.create (ClubeService.class);
+        final ClubeService service = retrofit.create(ClubeService.class);
         Call<ListaClubes> requestCatalog = service.listCatalog();
 
         try {

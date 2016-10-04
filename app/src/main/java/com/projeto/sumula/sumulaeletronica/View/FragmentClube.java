@@ -3,20 +3,22 @@ package com.projeto.sumula.sumulaeletronica.View;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
+import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
+import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +28,6 @@ public class FragmentClube extends Fragment {
         private ImageButton imageButton;
         private EditText etPesquisa;
         private GridView gv;
-        private ListaClubes listaClubes;
 
 
     public FragmentClube() {
@@ -44,26 +45,36 @@ public class FragmentClube extends Fragment {
         etPesquisa = (EditText) view.findViewById(R.id.etPesquisaClube);
         gv = (GridView) view.findViewById(R.id.gvClubes);
 
+
         ClubeJson c = new ClubeJson(FragmentClube.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
             @Override
             public void responseClubes(ListaClubes listaClubes) {
-
-                for (Clube c : listaClubes.clube) {
-                    Log.i("TAG", c.getNome());
-                }
-
                 gv.setAdapter(new AdaptadorGridViewClube(
                         FragmentClube.this.getActivity(),
                         listaClubes));
-
-
-//                listaClubes = listaClubes;
-//
 
             }
         });
 
         c.execute();
+
+//        JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), new JogadorJson.onResponseRetrofitListenner(){
+//            @Override
+//            public void responseJogadores(ListaJogadores listaJogadores){
+//
+//            }
+//        });
+//
+//        j.execute();
+
+        gv.setOnItemClickListener( new GridView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                Clube  c = (Clube) parent.getAdapter().getItem(position);
+
+            }
+        });
 
 
         imageButton.setOnClickListener(new View.OnClickListener(){
