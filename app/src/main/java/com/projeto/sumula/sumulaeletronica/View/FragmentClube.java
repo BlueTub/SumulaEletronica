@@ -4,6 +4,7 @@ package com.projeto.sumula.sumulaeletronica.View;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
+import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
@@ -58,20 +60,24 @@ public class FragmentClube extends Fragment {
 
         c.execute();
 
-//        JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), new JogadorJson.onResponseRetrofitListenner(){
-//            @Override
-//            public void responseJogadores(ListaJogadores listaJogadores){
-//
-//            }
-//        });
-//
-//        j.execute();
+
 
         gv.setOnItemClickListener( new GridView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 Clube  c = (Clube) parent.getAdapter().getItem(position);
+
+                JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), c.getId(), new JogadorJson.onResponseRetrofitListenner(){
+                    @Override
+                    public void responseJogadores(ListaJogadores listaJogadores){
+                        for (Jogador j : listaJogadores.jogador) {
+                            Log.i("TAG", j.getNome());
+                        }
+                    }
+                 });
+
+                j.execute();
 
             }
         });

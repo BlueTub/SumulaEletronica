@@ -21,10 +21,12 @@ public class JogadorJson extends AsyncTask<Void, Void, ListaJogadores> {
     private Context context;
     public ProgressDialog dialog;
     public onResponseRetrofitListenner listenner;
+    private int id;
 
 
-    public JogadorJson(Context context, onResponseRetrofitListenner listenner) {
+    public JogadorJson(Context context, int id, onResponseRetrofitListenner listenner) {
         this.context = context;
+        this.id = id;
         this.listenner = listenner;
     }
 
@@ -48,7 +50,7 @@ public class JogadorJson extends AsyncTask<Void, Void, ListaJogadores> {
                 .build();
 
         final JogadorService service = retrofit.create(JogadorService.class);
-        Call<ListaJogadores> listaJogadoresCall = service.listaPorClube(1); //TODO
+        Call<ListaJogadores> listaJogadoresCall = service.listaPorClube(id); //TODO
 
         try {
             ListaJogadores listaJogadores = listaJogadoresCall.execute().body();
