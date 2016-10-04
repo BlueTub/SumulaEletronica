@@ -20,17 +20,8 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-    
-    <android.support.design.internal.ScrimInsetsFrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <include layout="@layout/fragment_clube" />
-
-    </android.support.design.internal.ScrimInsetsFrameLayout>
-
-
+    <include layout="@layout/fragment_clube" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

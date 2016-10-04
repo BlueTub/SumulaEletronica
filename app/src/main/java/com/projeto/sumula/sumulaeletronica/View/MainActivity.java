@@ -21,19 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ClubeJson c = new ClubeJson(this, new ClubeJson.onResponseRetrofitListenner() {
 
-            @Override
-            public void responseClubes(ListaClubes listaClubes) {
-                MenuLateral.listaClubes = listaClubes;
 
-                for (Clube c : listaClubes.clube) {
-                    Log.i("TAG", c.getNome());
-                }
-            }
-        });
-
-        c.execute();
+       // c.execute();
 
         botao = (Button) findViewById(R.id.btnTorcedor);
         botao.setOnClickListener(new View.OnClickListener(){
