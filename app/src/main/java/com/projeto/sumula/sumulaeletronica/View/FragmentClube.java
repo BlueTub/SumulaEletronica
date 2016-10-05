@@ -1,12 +1,9 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
-
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +15,6 @@ import android.widget.Toast;
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
-import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
@@ -91,6 +87,18 @@ public class FragmentClube extends Fragment {
 
             }
         });
+
+//    public void pesquisa(String param){
+//        Clube c = new Clube();
+//
+//        for (Clube clube : listaClubes.clube) {
+//            if (clube.getNome().startsWith(param) || clube.getNome().endsWith(param)) {
+//                c = clube;
+//                listaPesquisa.clube.add(c);
+//            }
+//        }
+//
+//    }
 
 
         imageButton.setOnClickListener(new View.OnClickListener(){

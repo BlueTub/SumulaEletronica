@@ -3,7 +3,7 @@ package com.projeto.sumula.sumulaeletronica.persistence;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import com.projeto.sumula.sumulaeletronica.View.ViewClube;
+
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 import com.projeto.sumula.sumulaeletronica.services.ClubeService;
 import com.projeto.sumula.sumulaeletronica.services.JogadorService;

@@ -17,8 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.ViewJogador" />
-        <activity android:name=".View.ViewClube" />
         <activity
             android:name=".View.MenuLateral"
             android:label="@string/title_activity_menu_lateral"
