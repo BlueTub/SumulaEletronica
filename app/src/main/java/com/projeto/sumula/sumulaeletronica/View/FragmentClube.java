@@ -1,9 +1,11 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,13 +73,21 @@ public class FragmentClube extends Fragment {
                 JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), c.getId(), new JogadorJson.onResponseRetrofitListenner(){
                     @Override
                     public void responseJogadores(ListaJogadores listaJogadores){
-                        for (Jogador j : listaJogadores.jogador) {
-                            Log.i("TAG", j.getNome());
-                        }
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("lista", listaJogadores);
+
+                        FragmentJogadorClube fr = new FragmentJogadorClube();
+                        fr.setArguments(bundle);
+                        FragmentManager fm = getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+                        fragmentTransaction.commit();
                     }
                  });
 
                 j.execute();
+
+
 
             }
         });
