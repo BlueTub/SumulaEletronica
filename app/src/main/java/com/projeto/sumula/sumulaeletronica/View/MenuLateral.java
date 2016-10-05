@@ -13,14 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 import com.projeto.sumula.sumulaeletronica.R;
+import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
+import com.projeto.sumula.sumulaeletronica.fragments.FragmentTabsArbitro;
 
 public class MenuLateral extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     NavigationView navigationView;
     Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +108,13 @@ public class MenuLateral extends AppCompatActivity
         } else if (id == R.id.nav_jogador) {
 
         } else if (id == R.id.nav_arbitro) {
+            FragmentTabsArbitro fragmentClube = new FragmentTabsArbitro();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction()
+                    .replace(R.id.relativelayout_for_fragment,
+                            fragmentClube,
+                            fragmentClube.getTag())
+                    .commit();
 
         } else if (id == R.id.nav_estadio) {
 

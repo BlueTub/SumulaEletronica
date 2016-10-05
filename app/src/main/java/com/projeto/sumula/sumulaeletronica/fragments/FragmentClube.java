@@ -1,4 +1,4 @@
-package com.projeto.sumula.sumulaeletronica.View;
+package com.projeto.sumula.sumulaeletronica.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

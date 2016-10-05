@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentArbitro">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:text="Árbitro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:id="@+id/tvArbitro"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="46dp"
+        android:id="@+id/edPesquisarArbitro"
+        android:layout_below="@+id/tvArbitro"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:layout_alignBottom="@+id/edPesquisarArbitro"
+        android:layout_toEndOf="@+id/edPesquisarArbitro"
+        android:layout_marginStart="34dp"
+        android:id="@+id/ibPesquisarArbitro" />
+
+    <GridView
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/edPesquisarArbitro"
+        android:layout_alignStart="@+id/edPesquisarArbitro"
+        android:layout_marginTop="39dp"
+        android:id="@+id/gvArbitro" />
+</RelativeLayout>
