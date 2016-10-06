@@ -105,7 +105,7 @@ public class FragmentClube extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FragmentClube.this.getActivity(), "Pesquisar", Toast.LENGTH_SHORT).show();
-
+                //TODO
 //                listaPesquisa.clube = new ArrayList<Clube>();
 //                if (!listaPesquisa.clube.isEmpty()){
 //                    listaPesquisa.clube.clear();
