@@ -6,7 +6,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.projeto.sumula.sumulaeletronica.model.Arbitro;
 import com.projeto.sumula.sumulaeletronica.model.ListaArbitros;
+
+import java.util.List;
 
 /**
  * Created by Pedro on 05/10/2016.
@@ -15,21 +18,21 @@ import com.projeto.sumula.sumulaeletronica.model.ListaArbitros;
 public class AdaptadorGridViewArbitro extends BaseAdapter {
 
     private Context context;
-    private ListaArbitros listaArbitros;
+    private List<Arbitro> listaArbitros;
 
-    public AdaptadorGridViewArbitro(Context context, ListaArbitros listaArbitros) {
+    public AdaptadorGridViewArbitro(Context context, List<Arbitro> listaArbitros) {
         this.context = context;
         this.listaArbitros = listaArbitros;
     }
 
     @Override
     public int getCount() {
-        return listaArbitros.arbitros.size();
+        return listaArbitros.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listaArbitros.arbitros.get(position);
+        return listaArbitros.get(position);
     }
 
     @Override
@@ -40,7 +43,7 @@ public class AdaptadorGridViewArbitro extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView tv = new TextView(context);
-        tv.setText(listaArbitros.arbitros.get(position).getNome());
+        tv.setText(listaArbitros.get(position).getNome());
         return tv;
     }
 }

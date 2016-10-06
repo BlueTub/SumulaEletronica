@@ -3,10 +3,18 @@ package com.projeto.sumula.sumulaeletronica.persistence;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import com.projeto.sumula.sumulaeletronica.model.ListaArbitros;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.projeto.sumula.sumulaeletronica.model.Arbitro;
 import com.projeto.sumula.sumulaeletronica.services.ArbitroService;
 import com.projeto.sumula.sumulaeletronica.services.JogadorService;
+
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Pedro on 05/10/2016.
  */
 
-public class ArbitroJson extends AsyncTask<Void, Void, ListaArbitros> {
+public class ArbitroJson extends AsyncTask<Void, Void, List<Arbitro>> {
 
     private Context context;
     private ProgressDialog dialog;
@@ -33,34 +41,35 @@ public class ArbitroJson extends AsyncTask<Void, Void, ListaArbitros> {
     }
 
     @Override
-    protected void onPostExecute(ListaArbitros listaArbitros) {
+    protected void onPostExecute(List<Arbitro> listaArbitros) {
         listenner.responseArbitros(listaArbitros);
         dialog.dismiss();
     }
 
     @Override
-    protected ListaArbitros doInBackground(Void... params) {
+    protected List<Arbitro> doInBackground(Void... params) {
+
+        Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(JogadorService.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        ArbitroService service = retrofit.create(ArbitroService.class);
-        Call<ListaArbitros> listaArbitrosCall = service.listarTodos(); //TODO
+        final ArbitroService service = retrofit.create(ArbitroService.class);
+        Call<List<Arbitro>> listaArbitrosCall = service.listarTodos(); //TODO
 
         try {
-            ListaArbitros listaArbitros = listaArbitrosCall.execute().body();
+            List<Arbitro> listaArbitros = listaArbitrosCall.execute().body();
             return listaArbitros;
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (Throwable t) {
-            t.getMessage();
         }
 
         return null;
     }
 
     public interface OnResponseRetrofitListenner {
-        void responseArbitros(ListaArbitros listaArbitros);
+        void responseArbitros(List<Arbitro> listaArbitros);
     }
 }

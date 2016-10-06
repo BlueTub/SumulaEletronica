@@ -19,6 +19,9 @@ import com.projeto.sumula.sumulaeletronica.model.Arbitro;
 import com.projeto.sumula.sumulaeletronica.model.ListaArbitros;
 import com.projeto.sumula.sumulaeletronica.persistence.ArbitroJson;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -59,15 +62,16 @@ public class FragmentArbitro extends Fragment {
             public void onClick(View v) {
                 ArbitroJson arbitroJson = new ArbitroJson(FragmentArbitro.this.getActivity(), new ArbitroJson.OnResponseRetrofitListenner() {
                     @Override
-                    public void responseArbitros(ListaArbitros listaArbitros) {
+                    public void responseArbitros(List<Arbitro> listaArbitros) {
 
-                        for (Arbitro a : listaArbitros.arbitros) {
-                            Log.i("TAG", a.getNome());
+                        for (Arbitro a : listaArbitros) {
+                            String data = new SimpleDateFormat("dd/MM/yyyy").format(a.getDataNascimento());
+                            Log.i("TAG", data);
                         }
 
-//                        gv.setAdapter(new AdaptadorGridViewArbitro(
-//                                FragmentArbitro.this.getActivity(),
-//                                listaArbitros));
+                        gv.setAdapter(new AdaptadorGridViewArbitro(
+                                FragmentArbitro.this.getContext(),
+                                listaArbitros));
                     }
                 });
 

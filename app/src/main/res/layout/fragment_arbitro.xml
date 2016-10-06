@@ -29,15 +29,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="24dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        android:layout_alignBottom="@+id/etPesquisarArbitro"
-        android:layout_toEndOf="@+id/etPesquisarArbitro"
-        android:layout_marginStart="34dp"
-        android:id="@+id/ibPesquisarArbitro" />
-
     <GridView
         android:layout_width="250dp"
         android:layout_height="200dp"
@@ -45,4 +36,12 @@
         android:layout_alignStart="@+id/etPesquisarArbitro"
         android:layout_marginTop="39dp"
         android:id="@+id/gvArbitro" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:id="@+id/ibPesquisarArbitro"
+        android:layout_above="@+id/gvArbitro"
+        android:layout_toEndOf="@+id/etPesquisarArbitro" />
 </RelativeLayout>

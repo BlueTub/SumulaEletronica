@@ -1,19 +1,20 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
 import com.projeto.sumula.sumulaeletronica.enumeration.SituacaoJuiz;
+import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Pedro on 25/09/2016.
  */
-public class Arbitro {
+public class Arbitro implements Serializable{
 
     private int id;
     private String nome;
-    private int idade;
     private Date dataNascimento;
-    private String UF;
+    private UF UF;
     private String ufDescricao;
     private SituacaoJuiz situacao;
     private String situacaoDescritivo;
@@ -34,14 +35,6 @@ public class Arbitro {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
     public Date getDataNascimento() {
         return dataNascimento;
     }
@@ -50,11 +43,11 @@ public class Arbitro {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getUF() {
+    public com.projeto.sumula.sumulaeletronica.enumeration.UF getUF() {
         return UF;
     }
 
-    public void setUF(String UF) {
+    public void setUF(com.projeto.sumula.sumulaeletronica.enumeration.UF UF) {
         this.UF = UF;
     }
 

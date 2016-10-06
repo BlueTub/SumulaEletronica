@@ -1,7 +1,10 @@
 package com.projeto.sumula.sumulaeletronica.services;
 
 import com.projeto.sumula.sumulaeletronica.enumeration.BaseURL;
+import com.projeto.sumula.sumulaeletronica.model.Arbitro;
 import com.projeto.sumula.sumulaeletronica.model.ListaArbitros;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,7 +19,7 @@ public interface ArbitroService {
     public static final String BASE_URL = BaseURL.URL.caminho;
 
     @GET("arbitro/listarTodos") //TODO
-    Call<ListaArbitros> listarTodos();
+    Call<List<Arbitro>> listarTodos();
 
 
 }
