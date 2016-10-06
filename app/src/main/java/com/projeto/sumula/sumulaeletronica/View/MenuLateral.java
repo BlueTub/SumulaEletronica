@@ -14,7 +14,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.projeto.sumula.sumulaeletronica.R;
+import com.projeto.sumula.sumulaeletronica.fragments.FragmentArbitro;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
+import com.projeto.sumula.sumulaeletronica.fragments.FragmentPartidas;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentTabsArbitro;
 
 public class MenuLateral extends AppCompatActivity
@@ -108,7 +110,7 @@ public class MenuLateral extends AppCompatActivity
         } else if (id == R.id.nav_jogador) {
 
         } else if (id == R.id.nav_arbitro) {
-            FragmentTabsArbitro fragmentClube = new FragmentTabsArbitro();
+            FragmentArbitro fragmentClube = new FragmentArbitro();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .replace(R.id.relativelayout_for_fragment,
@@ -117,6 +119,15 @@ public class MenuLateral extends AppCompatActivity
                     .commit();
 
         } else if (id == R.id.nav_estadio) {
+
+        } else if (id == R.id.nav_partidas) {
+            FragmentPartidas fragmentClube = new FragmentPartidas();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction()
+                    .replace(R.id.relativelayout_for_fragment,
+                            fragmentClube,
+                            fragmentClube.getTag())
+                    .commit();
 
         } else if (id == R.id.nav_share) {
 

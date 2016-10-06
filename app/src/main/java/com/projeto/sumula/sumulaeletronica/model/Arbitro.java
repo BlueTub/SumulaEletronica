@@ -1,15 +1,30 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
+import com.projeto.sumula.sumulaeletronica.enumeration.SituacaoJuiz;
+
+import java.util.Date;
+
 /**
  * Created by Pedro on 25/09/2016.
  */
 public class Arbitro {
 
+    private int id;
     private String nome;
     private int idade;
-    private String nacionalidade;
+    private Date dataNascimento;
     private String UF;
-    private String situacao;
+    private String ufDescricao;
+    private SituacaoJuiz situacao;
+    private String situacaoDescritivo;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -27,12 +42,12 @@ public class Arbitro {
         this.idade = idade;
     }
 
-    public String getNacionalidade() {
-        return nacionalidade;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getUF() {
@@ -43,11 +58,29 @@ public class Arbitro {
         this.UF = UF;
     }
 
-    public String getSituacao() {
+    public String getUfDescricao() {
+        return ufDescricao;
+    }
+
+    public void setUfDescricao(String ufDescricao) {
+        this.ufDescricao = ufDescricao;
+    }
+
+    public SituacaoJuiz getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(String situacao) {
+    public void setSituacao(SituacaoJuiz situacao) {
         this.situacao = situacao;
     }
+
+    public String getSituacaoDescritivo() {
+        return situacaoDescritivo;
+    }
+
+    public void setSituacaoDescritivo(String situacaoDescritivo) {
+        this.situacaoDescritivo = situacaoDescritivo;
+    }
 }
+
+

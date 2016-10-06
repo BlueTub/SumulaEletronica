@@ -3,6 +3,7 @@ package com.projeto.sumula.sumulaeletronica.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewArbitro;
+import com.projeto.sumula.sumulaeletronica.model.Arbitro;
 import com.projeto.sumula.sumulaeletronica.model.ListaArbitros;
 import com.projeto.sumula.sumulaeletronica.persistence.ArbitroJson;
 
@@ -55,12 +57,17 @@ public class FragmentArbitro extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ArbitroJson arbitroJson = new ArbitroJson(FragmentArbitro.this.getActivity(), etPesquisa.getText().toString(), new ArbitroJson.OnResponseRetrofitListenner() {
+                ArbitroJson arbitroJson = new ArbitroJson(FragmentArbitro.this.getActivity(), new ArbitroJson.OnResponseRetrofitListenner() {
                     @Override
                     public void responseArbitros(ListaArbitros listaArbitros) {
-                        gv.setAdapter(new AdaptadorGridViewArbitro(
-                                FragmentArbitro.this.getActivity(),
-                                listaArbitros));
+
+                        for (Arbitro a : listaArbitros.arbitros) {
+                            Log.i("TAG", a.getNome());
+                        }
+
+//                        gv.setAdapter(new AdaptadorGridViewArbitro(
+//                                FragmentArbitro.this.getActivity(),
+//                                listaArbitros));
                     }
                 });
 

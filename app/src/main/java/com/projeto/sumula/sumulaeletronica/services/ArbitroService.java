@@ -15,8 +15,8 @@ public interface ArbitroService {
 
     public static final String BASE_URL = BaseURL.URL.caminho;
 
-    @GET("{nome}") //TODO
-    Call<ListaArbitros> buscarPorNome(@Path("nome") String nome);
+    @GET("arbitro/listarTodos") //TODO
+    Call<ListaArbitros> listarTodos();
 
 
 }

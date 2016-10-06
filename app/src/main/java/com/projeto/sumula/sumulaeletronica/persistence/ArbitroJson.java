@@ -19,12 +19,10 @@ public class ArbitroJson extends AsyncTask<Void, Void, ListaArbitros> {
 
     private Context context;
     private ProgressDialog dialog;
-    private String nome;
     private OnResponseRetrofitListenner listenner;
 
-    public ArbitroJson(Context context, String nome, OnResponseRetrofitListenner listenner) {
+    public ArbitroJson(Context context, OnResponseRetrofitListenner listenner) {
         this.context = context;
-        this.nome = nome;
         this.listenner = listenner;
     }
 
@@ -48,7 +46,7 @@ public class ArbitroJson extends AsyncTask<Void, Void, ListaArbitros> {
                 .build();
 
         ArbitroService service = retrofit.create(ArbitroService.class);
-        Call<ListaArbitros> listaArbitrosCall = service.buscarPorNome(nome); //TODO
+        Call<ListaArbitros> listaArbitrosCall = service.listarTodos(); //TODO
 
         try {
             ListaArbitros listaArbitros = listaArbitrosCall.execute().body();
