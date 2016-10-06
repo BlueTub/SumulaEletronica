@@ -42,16 +42,7 @@ public class FragmentArbitro extends Fragment {
         etPesquisa = (EditText) view.findViewById(R.id.etPesquisarArbitro);
         gv = (GridView) view.findViewById(R.id.gvArbitro);
 
-        ArbitroJson arbitroJson = new ArbitroJson(FragmentArbitro.this.getActivity(), "", new ArbitroJson.OnResponseRetrofitListenner() {
-            @Override
-            public void responseArbitros(ListaArbitros listaArbitros) {
-                gv.setAdapter(new AdaptadorGridViewArbitro(
-                        FragmentArbitro.this.getActivity(),
-                        listaArbitros));
-            }
-        });
 
-        arbitroJson.execute();
 
         gv.setOnItemClickListener( new GridView.OnItemClickListener() {
 
@@ -64,15 +55,16 @@ public class FragmentArbitro extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(FragmentArbitro.this.getActivity(), "Pesquisar", Toast.LENGTH_SHORT).show();
-                //TODO
-//                listaPesquisa.clube = new ArrayList<Clube>();
-//                if (!listaPesquisa.clube.isEmpty()){
-//                    listaPesquisa.clube.clear();
-//                }
-//
-//                pesquisa(etPesquisa.getText().toString());
-//                construirGrid(listaPesquisa);
+                ArbitroJson arbitroJson = new ArbitroJson(FragmentArbitro.this.getActivity(), etPesquisa.getText().toString(), new ArbitroJson.OnResponseRetrofitListenner() {
+                    @Override
+                    public void responseArbitros(ListaArbitros listaArbitros) {
+                        gv.setAdapter(new AdaptadorGridViewArbitro(
+                                FragmentArbitro.this.getActivity(),
+                                listaArbitros));
+                    }
+                });
+
+                arbitroJson.execute();
             }
         });
 
