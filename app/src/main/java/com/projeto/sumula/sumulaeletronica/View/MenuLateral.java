@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentArbitro;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
+import com.projeto.sumula.sumulaeletronica.fragments.FragmentEstadio;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentPartidas;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentTabsArbitro;
@@ -109,31 +110,38 @@ public class MenuLateral extends AppCompatActivity
                             fragmentClube.getTag())
                     .commit();
         } else if (id == R.id.nav_jogador) {
-            FragmentJogador fragmentClube = new FragmentJogador();
+            FragmentJogador fragmentJogador = new FragmentJogador();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .replace(R.id.relativelayout_for_fragment,
-                            fragmentClube,
-                            fragmentClube.getTag())
+                            fragmentJogador,
+                            fragmentJogador.getTag())
                     .commit();
         } else if (id == R.id.nav_arbitro) {
-            FragmentArbitro fragmentClube = new FragmentArbitro();
+            FragmentArbitro fragmentArbitro = new FragmentArbitro();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .replace(R.id.relativelayout_for_fragment,
-                            fragmentClube,
-                            fragmentClube.getTag())
+                            fragmentArbitro,
+                            fragmentArbitro.getTag())
                     .commit();
 
         } else if (id == R.id.nav_estadio) {
-
-        } else if (id == R.id.nav_partidas) {
-            FragmentPartidas fragmentClube = new FragmentPartidas();
+            FragmentEstadio fragmentEstadio = new FragmentEstadio();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .replace(R.id.relativelayout_for_fragment,
-                            fragmentClube,
-                            fragmentClube.getTag())
+                            fragmentEstadio,
+                            fragmentEstadio.getTag())
+                    .commit();
+
+        } else if (id == R.id.nav_partidas) {
+            FragmentPartidas fragmentPartidas = new FragmentPartidas();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction()
+                    .replace(R.id.relativelayout_for_fragment,
+                            fragmentPartidas,
+                            fragmentPartidas.getTag())
                     .commit();
 
         } else if (id == R.id.nav_share) {

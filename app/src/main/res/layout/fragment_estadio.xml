@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentEstadio">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Pesquisar um Estádio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="48dp"
+        android:id="@+id/etPesquisaEstadio" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:layout_alignBottom="@+id/etPesquisaEstadio"
+        android:layout_toEndOf="@+id/etPesquisaEstadio"
+        android:layout_marginStart="23dp"
+        android:id="@+id/ibPesquisarEstadio" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/etPesquisaEstadio"
+        android:layout_alignStart="@+id/etPesquisaEstadio"
+        android:layout_marginTop="30dp"
+        android:verticalSpacing="30dp"
+        android:id="@+id/gvEstadios" />
+</RelativeLayout>
