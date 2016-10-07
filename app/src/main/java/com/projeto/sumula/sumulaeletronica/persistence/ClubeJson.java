@@ -3,11 +3,16 @@ package com.projeto.sumula.sumulaeletronica.persistence;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 import com.projeto.sumula.sumulaeletronica.services.ClubeService;
 import com.projeto.sumula.sumulaeletronica.services.JogadorService;
 import java.io.IOException;
+import java.net.ConnectException;
+
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -54,7 +59,7 @@ public class ClubeJson extends AsyncTask<Void, Void, ListaClubes>{
             ListaClubes listaClubes = requestCatalog.execute().body();
             return listaClubes;
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.i("TAG", "ERRO DE CONEXÃO COM O WEB SERVICE");
         }
 
 //        requestCatalog.enqueue(new Callback<ListaClubes>(){

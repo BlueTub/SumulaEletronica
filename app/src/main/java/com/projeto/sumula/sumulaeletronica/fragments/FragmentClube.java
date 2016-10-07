@@ -20,6 +20,8 @@ import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
+import java.net.ConnectException;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -49,9 +51,18 @@ public class FragmentClube extends Fragment {
         ClubeJson c = new ClubeJson(FragmentClube.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
             @Override
             public void responseClubes(ListaClubes listaClubes) {
-                gv.setAdapter(new AdaptadorGridViewClube(
-                        FragmentClube.this.getActivity(),
-                        listaClubes));
+                try {
+                    if (listaClubes != null) {
+                        gv.setAdapter(new AdaptadorGridViewClube(
+                                FragmentClube.this.getActivity(),
+                                listaClubes));
+                    }
+                }catch (NullPointerException e) {
+                    Toast.makeText(FragmentClube.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
+                }
+
+
+
 
             }
         });

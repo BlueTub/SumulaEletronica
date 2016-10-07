@@ -1,13 +1,103 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:text="Pesquisar Jogador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView5" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/rgPesquisaJogador"
+        android:orientation="horizontal"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:text="Nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbJogadorNome"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Clube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbJogadorClube"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Posição"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbJogadorPosicao"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="UF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbJogadorUF"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <Button
+        android:text="Pesquisar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgPesquisaJogador"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="179dp"
+        android:id="@+id/btnPesquisarJogador"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/rgPesquisaJogador"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp"
+        android:id="@+id/etPesquisa"
+        android:visibility="invisible"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spnPosicao"
+        android:layout_alignBottom="@+id/etPesquisa"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"
+        android:spinnerMode="dialog" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spnPosicao"
+        android:layout_alignParentStart="true"
+        android:id="@+id/spnUF"
+        android:visibility="invisible"
+        android:spinnerMode="dialog" />
+
+    <AutoCompleteTextView
+        android:id="@+id/actvClubes"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etPesquisa"
+        android:layout_alignBottom="@+id/etPesquisa"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
