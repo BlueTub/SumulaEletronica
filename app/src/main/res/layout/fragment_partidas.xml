@@ -1,36 +1,15 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentPartidas">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/rgCampeonato">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <RadioButton
-            android:text="Paulista"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rbPaulista"
-            android:layout_weight="1" />
-
-        <RadioButton
-            android:text="Brasielirão"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rbBrasileirao"
-            android:layout_weight="1"
-            android:checked="true" />
-    </RadioGroup>
-
-    <RadioGroup
+        <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -56,39 +35,7 @@
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Nome do clube"
-        android:ems="10"
-        android:id="@+id/etPesquisarPartidaClube"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/datePicker"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_marginTop="40dp" />
-
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/datePicker"
-        android:layout_marginTop="20dp"
-        android:visibility="invisible"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:datePickerMode="spinner"
-        android:spinnersShown="false"/>
-
-    <TextView
-        android:text="Pesquisar por: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/rgCampeonato"
-        android:layout_toStartOf="@+id/rgPesquisa" />
-
-    <TextView
+        <TextView
         android:text="Partida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,13 +43,70 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <ImageButton
+        <DatePicker
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/datePicker"
+            android:layout_marginTop="146dp"
+            android:visibility="invisible"
+            android:datePickerMode="spinner"
+            android:spinnersShown="false"
+            android:layout_below="@+id/rgPesquisa"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+        android:text="Pesquisar por: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        android:id="@+id/imageButton"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/rgCampeonato"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_marginTop="68dp"
+        android:id="@+id/textView4"
+            android:layout_below="@+id/rgCampeonato"
+            android:layout_toStartOf="@+id/rgPesquisa" />
 
-</RelativeLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Nome do clube"
+            android:ems="10"
+            android:id="@+id/etPesquisarPartidaClube"
+            android:visibility="invisible"
+            android:layout_below="@+id/rgPesquisa"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_marginTop="51dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_search"
+            android:id="@+id/imageButton"
+            android:visibility="invisible"
+            android:layout_alignBottom="@+id/etPesquisarPartidaClube"
+            android:layout_toEndOf="@+id/etPesquisarPartidaClube"
+            android:layout_marginStart="11dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:id="@+id/rgCampeonato"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:text="Paulista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbPaulista"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="Brasielirão"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rbBrasileirao"
+                android:layout_weight="1"
+                android:checked="true" />
+        </RadioGroup>
+    </RelativeLayout>
+</ScrollView>

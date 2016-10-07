@@ -63,7 +63,7 @@
         android:visibility="invisible"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
@@ -93,7 +93,7 @@
 
     <AutoCompleteTextView
         android:id="@+id/actvClubes"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etPesquisa"
         android:layout_alignBottom="@+id/etPesquisa"

@@ -60,10 +60,6 @@ public class FragmentClube extends Fragment {
                 }catch (NullPointerException e) {
                     Toast.makeText(FragmentClube.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
                 }
-
-
-
-
             }
         });
 
