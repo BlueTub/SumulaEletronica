@@ -20,8 +20,6 @@ import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
-import java.net.ConnectException;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -71,15 +69,15 @@ public class FragmentClube extends Fragment {
 
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
-                Clube  c = (Clube) parent.getAdapter().getItem(position);
+                Clube  clube = (Clube) parent.getAdapter().getItem(position);
 
-                JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), c.getId(), new JogadorJson.onResponseRetrofitListenner(){
+                JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
                     @Override
                     public void responseJogadores(ListaJogadores listaJogadores){
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("lista", listaJogadores);
 
-                        FragmentJogadorClube fr = new FragmentJogadorClube();
+                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
                         fr.setArguments(bundle);
                         FragmentManager fm = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fm.beginTransaction();

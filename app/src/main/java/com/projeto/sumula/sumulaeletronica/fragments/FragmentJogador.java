@@ -3,6 +3,8 @@ package com.projeto.sumula.sumulaeletronica.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
+import com.projeto.sumula.sumulaeletronica.model.Clube;
+import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
+import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +32,7 @@ import java.util.List;
  */
 public class FragmentJogador extends Fragment {
 
-    private EditText etPesqusiar;
+    private EditText etPesquisar;
     private AutoCompleteTextView completeTextView;
     private RadioGroup radioGroup;
     private RadioButton rbNome, rbClube, rbPosicao, rbUF;
@@ -55,7 +61,7 @@ public class FragmentJogador extends Fragment {
                 "Coritiba", "Fluminense", "Grêmio", "Santos", "Atlético-MG", "Bahia",
                 "Atlético-GO", "Avaí", "América-MG", "Atlético-PR"};
 
-        etPesqusiar = (EditText) view.findViewById(R.id.etPesquisa);
+        etPesquisar = (EditText) view.findViewById(R.id.etPesquisa);
         radioGroup = (RadioGroup) view.findViewById(R.id.rgPesquisaJogador);
         rbNome = (RadioButton) view.findViewById(R.id.rbJogadorNome);
         rbClube = (RadioButton) view.findViewById(R.id.rbJogadorClube);
@@ -94,11 +100,58 @@ public class FragmentJogador extends Fragment {
             }
         });
 
+        btnPesquisar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String param = null;
+                String tipo = null;
+                if (rbPosicao.isChecked()) {
+                    param = spnPosicao.getSelectedItem().toString();
+                    tipo = "posicao";
+                }else if (rbUF.isChecked()){
+                    param = spnUF.getSelectedItem().toString();
+                    tipo = "uf";
+                }else if (rbNome.isChecked()){
+                    param = etPesquisar.getText().toString();
+                    tipo = "nome";
+                }else if (rbClube.isChecked()){
+                    param = completeTextView.getText().toString();
+                    tipo = "clube";
+                }else{
+                    Toast.makeText(FragmentJogador.this.getActivity(),
+                            "Selecione um tipo de pesquisa", Toast.LENGTH_LONG).show();
+                }
+
+                if (param != null && tipo != null)
+                    pesquisa(param, tipo);
+
+            }
+        });
+
         //Carrega lista com o enum
         ufs = Arrays.asList(UF.values());
         posicoes = Arrays.asList(PosicaoJogador.values());
 
         return view;
+    }
+
+    public void pesquisa(String param, String tipo){
+        JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), new Clube(), param, tipo, new JogadorJson.onResponseRetrofitListenner(){
+            @Override
+            public void responseJogadores(ListaJogadores listaJogadores){
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("lista", listaJogadores);
+
+                FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+                fr.setArguments(bundle);
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+                fragmentTransaction.commit();
+            }
+        });
+
+        j.execute();
     }
 
     public void onRadioButtonClicked(View view) {
@@ -110,7 +163,7 @@ public class FragmentJogador extends Fragment {
             case R.id.rbJogadorNome:
                 if (checked)
                     btnPesquisar.setVisibility(View.VISIBLE);
-                    etPesqusiar.setVisibility(View.VISIBLE);
+                    etPesquisar.setVisibility(View.VISIBLE);
 
                     spnPosicao.setVisibility(View.INVISIBLE);
                     spnUF.setVisibility(View.INVISIBLE);
@@ -124,7 +177,7 @@ public class FragmentJogador extends Fragment {
                     completeTextView.setVisibility(View.VISIBLE);
                     btnPesquisar.setVisibility(View.VISIBLE);
 
-                    etPesqusiar.setVisibility(View.INVISIBLE);
+                    etPesquisar.setVisibility(View.INVISIBLE);
                     spnPosicao.setVisibility(View.INVISIBLE);
                     spnUF.setVisibility(View.INVISIBLE);
                 break;
@@ -142,7 +195,7 @@ public class FragmentJogador extends Fragment {
 
                     completeTextView.setVisibility(View.INVISIBLE);
                     spnUF.setVisibility(View.INVISIBLE);
-                    etPesqusiar.setVisibility(View.INVISIBLE);
+                    etPesquisar.setVisibility(View.INVISIBLE);
                     break;
             case R.id.rbJogadorUF:
                 if (checked)
@@ -158,7 +211,7 @@ public class FragmentJogador extends Fragment {
 
                     completeTextView.setVisibility(View.INVISIBLE);
                     spnPosicao.setVisibility(View.INVISIBLE);
-                    etPesqusiar.setVisibility(View.INVISIBLE);
+                    etPesquisar.setVisibility(View.INVISIBLE);
                     break;
         }
     }

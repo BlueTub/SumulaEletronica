@@ -26,6 +26,16 @@ public interface JogadorService {
     @GET("jogador/listaPorClube/{id}")
     Call<ListaJogadores> listaPorClube(@Path("id") int id );
 
+    @GET("jogador//{nome}") //TODO
+    Call<ListaJogadores> listaPorNomeClube(@Path("nome") String nome);
 
+    @GET("jogador//{posicao}") //TODO
+    Call<ListaJogadores> listaPorPosicao(@Path("posicao") String posicao);
+
+    @GET("jogador//{UF}") //TODO
+    Call<ListaJogadores> listaPorUF(@Path("UF") String UF);
+
+    @GET("jogador//{nome}") //TODO
+    Call<ListaJogadores> listaPorNome(@Path("nome") String nome);
 
 }

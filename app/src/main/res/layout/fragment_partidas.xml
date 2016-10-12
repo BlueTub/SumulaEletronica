@@ -50,9 +50,9 @@
             android:layout_marginTop="146dp"
             android:visibility="invisible"
             android:datePickerMode="spinner"
-            android:spinnersShown="false"
+            android:spinnersShown="true"
             android:layout_below="@+id/rgPesquisa"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignStart="@+id/etPesquisarPartidaClube" />
 
         <TextView
         android:text="Pesquisar por: "

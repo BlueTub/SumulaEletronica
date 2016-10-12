@@ -3,6 +3,8 @@ package com.projeto.sumula.sumulaeletronica.persistence;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+
+import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.services.JogadorService;
 
@@ -21,12 +23,16 @@ public class JogadorJson extends AsyncTask<Void, Void, ListaJogadores> {
     private Context context;
     public ProgressDialog dialog;
     public onResponseRetrofitListenner listenner;
-    private int id;
+    private Clube clube;
+    private String pesquisa;
+    private String tipo;
 
 
-    public JogadorJson(Context context, int id, onResponseRetrofitListenner listenner) {
+    public JogadorJson(Context context, Clube clube, String tipo, String pesquisa, onResponseRetrofitListenner listenner) {
         this.context = context;
-        this.id = id;
+        this.clube = clube;
+        this.tipo = tipo;
+        this.pesquisa = pesquisa;
         this.listenner = listenner;
     }
 
@@ -50,7 +56,19 @@ public class JogadorJson extends AsyncTask<Void, Void, ListaJogadores> {
                 .build();
 
         final JogadorService service = retrofit.create(JogadorService.class);
-        Call<ListaJogadores> listaJogadoresCall = service.listaPorClube(id); //TODO
+        Call<ListaJogadores> listaJogadoresCall = null;
+
+        if (pesquisa.equalsIgnoreCase("id")){
+            listaJogadoresCall = service.listaPorClube(clube.getId());
+        }else if (pesquisa.equalsIgnoreCase("clube")){
+            listaJogadoresCall = service.listaPorNomeClube(clube.getNome());
+        }else if (pesquisa.equalsIgnoreCase("posicao")){
+            listaJogadoresCall = service.listaPorPosicao(tipo); //TODO
+        }else if (pesquisa.equalsIgnoreCase("uf")){
+            listaJogadoresCall = service.listaPorUF(tipo);//TODO
+        }else if (pesquisa.equalsIgnoreCase("nome")) {
+            listaJogadoresCall = service.listaPorNome(tipo);//TODO
+        }
 
         try {
             ListaJogadores listaJogadores = listaJogadoresCall.execute().body();
