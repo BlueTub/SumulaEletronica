@@ -8,16 +8,6 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <TextView
-        android:text="Árbitro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
-        android:id="@+id/tvArbitro"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,15 +19,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="24dp" />
 
-    <GridView
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_below="@+id/etPesquisarArbitro"
-        android:layout_alignStart="@+id/etPesquisarArbitro"
-        android:layout_marginTop="39dp"
-        android:verticalSpacing="30dp"
-        android:id="@+id/gvArbitro" />
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,4 +26,22 @@
         android:id="@+id/ibPesquisarArbitro"
         android:layout_above="@+id/gvArbitro"
         android:layout_toEndOf="@+id/etPesquisarArbitro" />
+
+    <TextView
+        android:text="Árbitro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvArbitro"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalSpacing="30dp"
+        android:id="@+id/gvArbitro"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/etPesquisarArbitro"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

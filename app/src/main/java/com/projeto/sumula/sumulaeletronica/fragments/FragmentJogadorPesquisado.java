@@ -47,6 +47,8 @@ public class FragmentJogadorPesquisado extends Fragment {
                 Jogador jogador = (Jogador) parent.getAdapter().getItem(position);
                 String apelido = jogador.getApelido();
                 Toast.makeText(FragmentJogadorPesquisado.this.getActivity(), apelido, Toast.LENGTH_SHORT).show();
+
+
             }
         });
 
