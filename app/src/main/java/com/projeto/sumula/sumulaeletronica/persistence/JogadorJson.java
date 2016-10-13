@@ -61,7 +61,7 @@ public class JogadorJson extends AsyncTask<Void, Void, ListaJogadores> {
         if (pesquisa.equalsIgnoreCase("id")){
             listaJogadoresCall = service.listaPorClube(clube.getId());
         }else if (pesquisa.equalsIgnoreCase("clube")){
-            listaJogadoresCall = service.listaPorNomeClube(clube.getNome());
+            listaJogadoresCall = service.listaPorClubeNome(clube.getNome());
         }else if (pesquisa.equalsIgnoreCase("posicao")){
             listaJogadoresCall = service.listaPorPosicao(tipo); //TODO
         }else if (pesquisa.equalsIgnoreCase("uf")){

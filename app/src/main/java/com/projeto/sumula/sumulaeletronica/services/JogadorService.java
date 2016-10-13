@@ -23,19 +23,19 @@ public interface JogadorService {
     @GET("jogador/listarTodos")
     Call<ListaJogadores> listCatalog();
 
-    @GET("jogador/listaPorClube/{id}")
+    @GET("jogador/listaPorClubeId/{id}")
     Call<ListaJogadores> listaPorClube(@Path("id") int id );
 
-    @GET("jogador//{nome}") //TODO
-    Call<ListaJogadores> listaPorNomeClube(@Path("nome") String nome);
+    @GET("jogador/listaPorClubeNome/{nome}")
+    Call<ListaJogadores> listaPorClubeNome(@Path("nome") String nome);
 
-    @GET("jogador//{posicao}") //TODO
+    @GET("jogador/listaPorPosicao/{posicao}")
     Call<ListaJogadores> listaPorPosicao(@Path("posicao") String posicao);
 
-    @GET("jogador//{UF}") //TODO
+    @GET("jogador/listaPorUf/{UF}")
     Call<ListaJogadores> listaPorUF(@Path("UF") String UF);
 
-    @GET("jogador//{nome}") //TODO
+    @GET("jogador/listaPorNome/{nome}")
     Call<ListaJogadores> listaPorNome(@Path("nome") String nome);
 
 }
