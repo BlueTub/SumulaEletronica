@@ -3,8 +3,11 @@ package com.projeto.sumula.sumulaeletronica.persistence;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.JsonReader;
+import android.util.Log;
 
 import com.projeto.sumula.sumulaeletronica.model.Clube;
+import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.services.JogadorService;
 
@@ -61,17 +64,23 @@ public class JogadorJson extends AsyncTask<Void, Void, ListaJogadores> {
         if (pesquisa.equalsIgnoreCase("id")){
             listaJogadoresCall = service.listaPorClube(clube.getId());
         }else if (pesquisa.equalsIgnoreCase("clube")){
-            listaJogadoresCall = service.listaPorClubeNome(clube.getNome());
+            //listaJogadoresCall = service.listaPorClubeNome(tipo);
         }else if (pesquisa.equalsIgnoreCase("posicao")){
             listaJogadoresCall = service.listaPorPosicao(tipo); //TODO
         }else if (pesquisa.equalsIgnoreCase("uf")){
             listaJogadoresCall = service.listaPorUF(tipo);//TODO
         }else if (pesquisa.equalsIgnoreCase("nome")) {
+            Log.i("NOME", tipo);
             listaJogadoresCall = service.listaPorNome(tipo);//TODO
         }
 
         try {
             ListaJogadores listaJogadores = listaJogadoresCall.execute().body();
+
+            for (Jogador j : listaJogadores.jogador){
+                Log.i("TAG", j.getNome());
+            }
+
             return listaJogadores;
         } catch (IOException e) {
             e.printStackTrace();

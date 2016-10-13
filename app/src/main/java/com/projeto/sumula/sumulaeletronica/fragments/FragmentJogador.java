@@ -5,23 +5,29 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
+import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
+import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
+import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
 import java.util.Arrays;
@@ -44,6 +50,7 @@ public class FragmentJogador extends Fragment {
     private ArrayAdapter<PosicaoJogador> adapterPosicao;
     private static String[] CLUBES;
     private ArrayAdapter<String> adp;
+    private GridView gridView;
 
     public FragmentJogador() {
         // Required empty public constructor
@@ -71,6 +78,7 @@ public class FragmentJogador extends Fragment {
         spnPosicao = (Spinner) view.findViewById(R.id.spnPosicao);
         spnUF = (Spinner) view.findViewById(R.id.spnUF);
         completeTextView = (AutoCompleteTextView) view.findViewById(R.id.actvClubes);
+        gridView = (GridView) view.findViewById(R.id.gvPCJ);
 
         rbNome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +108,30 @@ public class FragmentJogador extends Fragment {
             }
         });
 
+        gridView.setOnItemClickListener( new GridView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Clube  clube = (Clube) parent.getAdapter().getItem(position);
+
+                JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
+                    @Override
+                    public void responseJogadores(ListaJogadores listaJogadores){
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("lista", listaJogadores);
+
+                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+                        fr.setArguments(bundle);
+                        FragmentManager fm = getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+                        fragmentTransaction.commit();
+                    }
+                });
+
+                j.execute();
+            }
+        });
+
         btnPesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,10 +145,27 @@ public class FragmentJogador extends Fragment {
                     tipo = "uf";
                 }else if (rbNome.isChecked()){
                     param = etPesquisar.getText().toString();
+                    Log.i("PARAM", param);
                     tipo = "nome";
                 }else if (rbClube.isChecked()){
-                    param = completeTextView.getText().toString();
-                    tipo = "clube";
+                    ClubeJson c = new ClubeJson(FragmentJogador.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
+                        @Override
+                        public void responseClubes(ListaClubes listaClubes) {
+                            try {
+                                if (listaClubes != null) {
+                                    gridView.setAdapter(new AdaptadorGridViewClube(
+                                            FragmentJogador.this.getActivity(),
+                                            listaClubes));
+                                }
+                            }catch (NullPointerException e) {
+                                Toast.makeText(FragmentJogador.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
+                    c.execute();
+                    //param = completeTextView.getText().toString();
+                    //tipo = "clube";
                 }else{
                     Toast.makeText(FragmentJogador.this.getActivity(),
                             "Selecione um tipo de pesquisa", Toast.LENGTH_LONG).show();

@@ -1,9 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
         android:text="Pesquisar Jogador"
@@ -100,4 +103,15 @@
         android:layout_centerHorizontal="true"
         android:visibility="invisible"/>
 
-</RelativeLayout>
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="54dp"
+            android:id="@+id/gvPCJ"
+            android:layout_below="@+id/btnPesquisarJogador"
+            android:verticalSpacing="20dp"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+</ScrollView>
