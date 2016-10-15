@@ -3,6 +3,7 @@ package com.projeto.sumula.sumulaeletronica.View;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -103,46 +104,23 @@ public class MenuLateral extends AppCompatActivity
 
         if (id == R.id.nav_clube) {
             FragmentClube fragmentClube = new FragmentClube();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction()
-                    .replace(R.id.relativelayout_for_fragment,
-                            fragmentClube,
-                            fragmentClube.getTag())
-                    .commit();
+            transaction(fragmentClube);
+
         } else if (id == R.id.nav_jogador) {
             FragmentJogador fragmentJogador = new FragmentJogador();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction()
-                    .replace(R.id.relativelayout_for_fragment,
-                            fragmentJogador,
-                            fragmentJogador.getTag())
-                    .commit();
+            transaction(fragmentJogador);
+
         } else if (id == R.id.nav_arbitro) {
             FragmentArbitro fragmentArbitro = new FragmentArbitro();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction()
-                    .replace(R.id.relativelayout_for_fragment,
-                            fragmentArbitro,
-                            fragmentArbitro.getTag())
-                    .commit();
+            transaction(fragmentArbitro);
 
         } else if (id == R.id.nav_estadio) {
             FragmentEstadio fragmentEstadio = new FragmentEstadio();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction()
-                    .replace(R.id.relativelayout_for_fragment,
-                            fragmentEstadio,
-                            fragmentEstadio.getTag())
-                    .commit();
+            transaction(fragmentEstadio);
 
         } else if (id == R.id.nav_partidas) {
             FragmentPartidas fragmentPartidas = new FragmentPartidas();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction()
-                    .replace(R.id.relativelayout_for_fragment,
-                            fragmentPartidas,
-                            fragmentPartidas.getTag())
-                    .commit();
+            transaction(fragmentPartidas);
 
         } else if (id == R.id.nav_share) {
 
@@ -153,5 +131,14 @@ public class MenuLateral extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void transaction(Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .replace(R.id.relativelayout_for_fragment,
+                        fragment,
+                        fragment.getTag())
+                .commit();
     }
 }
