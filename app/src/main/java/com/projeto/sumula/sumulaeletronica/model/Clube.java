@@ -1,5 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
+import com.projeto.sumula.sumulaeletronica.enumeration.UF;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +28,7 @@ public class Clube implements Serializable {
     private String nome;
     private Estadio estadio;
     private int imagem;
-
+    private UF uf;
 
     public int getImagem() {
         return imagem;
@@ -66,6 +68,14 @@ public class Clube implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public UF getUf() {
+        return uf;
+    }
+
+    public void setUf(UF uf) {
+        this.uf = uf;
     }
 
     @Override
