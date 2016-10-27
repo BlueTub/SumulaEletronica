@@ -29,6 +29,7 @@ public class Clube implements Serializable {
     private Estadio estadio;
     private int imagem;
     private UF uf;
+    private Tecnico tecnico;
 
     public int getImagem() {
         return imagem;
@@ -78,16 +79,20 @@ public class Clube implements Serializable {
         this.uf = uf;
     }
 
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
+    }
+
     @Override
     public String toString() {
-        return "Clube{" +
-                "id=" + id +
-                ", dataFundacao='" + dataFundacao + '\'' +
-                ", nome='" + nome + '\'' +
-                ", estadio=" + estadio +
-                ", imagem=" + imagem +
-                '}';
+        return "Clube [id=" + id + ", dataFundacao=" + dataFundacao + ", nome=" + nome + ", estadio=" + estadio
+                + ", uf=" + uf + ", tecnico=" + tecnico + "]";
     }
+
 }
 
 
