@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Campeonato {
 
+    private int id;
     private String nome;
     private Date ano;
     private List<Partida> partidas;
@@ -53,5 +54,23 @@ public class Campeonato {
 
     public void setParticipacoes(List<Participacao> participacoes) {
         this.participacoes = participacoes;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Campeonato{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", ano=" + ano +
+                ", partidas=" + partidas +
+                ", inscricoes=" + inscricoes +
+                ", participacoes=" + participacoes +
+                '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.model;
 
+import com.projeto.sumula.sumulaeletronica.enumeration.TipoContrato;
+
 import java.util.Date;
 
 /**
@@ -8,18 +10,18 @@ import java.util.Date;
 
 public class Contrato {
 
-    private String tipo;
+    private TipoContrato tipo;
     private int numero;
     private Date dataInicio;
     private Date dataTermino;
     private Jogador jogador;
     private Clube clube;
 
-    public String getTipo() {
+    public TipoContrato getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoContrato tipo) {
         this.tipo = tipo;
     }
 
@@ -61,5 +63,17 @@ public class Contrato {
 
     public void setClube(Clube clube) {
         this.clube = clube;
+    }
+
+    @Override
+    public String toString() {
+        return "Contrato{" +
+                "tipo=" + tipo +
+                ", numero=" + numero +
+                ", dataInicio=" + dataInicio +
+                ", dataTermino=" + dataTermino +
+                ", jogador=" + jogador +
+                ", clube=" + clube +
+                '}';
     }
 }

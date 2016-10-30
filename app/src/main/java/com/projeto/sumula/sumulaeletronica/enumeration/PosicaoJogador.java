@@ -6,7 +6,10 @@ package com.projeto.sumula.sumulaeletronica.enumeration;
 
 public enum PosicaoJogador {
 
-    ATACANTE("Atacante"), GOLEIRO("Goleiro");
+    ATACANTE("Atacante"), GOLEIRO("Goleiro"),
+    LATERALE("Lateral Esquerda"), LATERALD("Lateral Direita"),
+    ZAGUEIRO("Zagueiro"), MEIA("Meio Campista"),
+    VOLANTE("Volante");
 
     private String descricao;
 

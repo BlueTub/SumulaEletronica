@@ -1,6 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.enumeration;
 
 /**
+ * Constante da situação de um juiz
  * Created by Pedro on 06/10/2016.
  */
 public enum SituacaoJuiz {

@@ -7,31 +7,40 @@ import java.util.List;
  */
 public class Escalacao {
 
-    private String posicoesTitulares;
-    private String posicaoReservas;
-    private List<Jogador> jogadors;
+    private List<Jogador> titulares;
+    private List<Jogador> reservas;
+    private Clube clube;
+    private String data;
 
-    public String getPosicoesTitulares() {
-        return posicoesTitulares;
+    public List<Jogador> getTitulares() {
+        return titulares;
+    }
+    public void setTitulares(List<Jogador> titulares) {
+        this.titulares = titulares;
+    }
+    public List<Jogador> getReservas() {
+        return reservas;
+    }
+    public void setReservas(List<Jogador> reservas) {
+        this.reservas = reservas;
+    }
+    public Clube getClube() {
+        return clube;
+    }
+    public void setClube(Clube clube) {
+        this.clube = clube;
     }
 
-    public void setPosicoesTitulares(String posicoesTitulares) {
-        this.posicoesTitulares = posicoesTitulares;
+    public String getData() {
+        return data;
+    }
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public String getPosicaoReservas() {
-        return posicaoReservas;
-    }
-
-    public void setPosicaoReservas(String posicaoReservas) {
-        this.posicaoReservas = posicaoReservas;
-    }
-
-    public List<Jogador> getJogadors() {
-        return jogadors;
-    }
-
-    public void setJogadors(List<Jogador> jogadors) {
-        this.jogadors = jogadors;
+    @Override
+    public String toString() {
+        return "Escalacao [titulares=" + titulares + ", reservas=" + reservas + ", clube=" + clube + ", data=" + data
+                + "]";
     }
 }

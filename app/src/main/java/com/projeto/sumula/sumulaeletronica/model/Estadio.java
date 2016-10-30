@@ -9,11 +9,13 @@ import java.util.Date;
  */
 
 public class Estadio {
+
     private String nome;
     private UF uf;
     private int capacidade;
     private String dataInauguracao;
     private String endereco;
+
     public String getNome() {
         return nome;
     }
