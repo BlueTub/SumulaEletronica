@@ -69,24 +69,24 @@ public class FragmentClube extends Fragment {
 
             @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
-                Clube  clube = (Clube) parent.getAdapter().getItem(position);
-
-                JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
-                    @Override
-                    public void responseJogadores(ListaJogadores listaJogadores){
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("lista", listaJogadores);
-
-                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
-                        fr.setArguments(bundle);
-                        FragmentManager fm = getFragmentManager();
-                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
-                        fragmentTransaction.commit();
-                    }
-                 });
-
-                j.execute();
+//                Clube  clube = (Clube) parent.getAdapter().getItem(position);
+//
+//                JogadorJson j = new JogadorJson(FragmentClube.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
+//                    @Override
+//                    public void responseJogadores(ListaJogadores listaJogadores){
+//                        Bundle bundle = new Bundle();
+//                        bundle.putSerializable("lista", listaJogadores);
+//
+//                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+//                        fr.setArguments(bundle);
+//                        FragmentManager fm = getFragmentManager();
+//                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+//                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+//                        fragmentTransaction.commit();
+//                    }
+//                 });
+//
+//                j.execute();
 
 
 

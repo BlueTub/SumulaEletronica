@@ -18,14 +18,12 @@ import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.JsonObject;
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
@@ -33,12 +31,9 @@ import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONArray;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -126,30 +121,36 @@ public class FragmentJogador extends Fragment {
         gridView.setOnItemClickListener( new GridView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Clube  clube = (Clube) parent.getAdapter().getItem(position);
+//                Clube  clube = (Clube) parent.getAdapter().getItem(position);
+//
+//                JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
+//                    @Override
+//                    public void responseJogadores(ListaJogadores listaJogadores){
+//                        Bundle bundle = new Bundle();
+//                        bundle.putSerializable("lista", listaJogadores);
+//
+//                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+//                        fr.setArguments(bundle);
+//                        FragmentManager fm = getFragmentManager();
+//                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+//                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+//                        fragmentTransaction.commit();
+//                    }
+//                });
 
-                JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
-                    @Override
-                    public void responseJogadores(ListaJogadores listaJogadores){
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("lista", listaJogadores);
-
-                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
-                        fr.setArguments(bundle);
-                        FragmentManager fm = getFragmentManager();
-                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
-                        fragmentTransaction.commit();
-                    }
-                });
-
-                j.execute();
+                //j.execute();
             }
         });
 
         btnPesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                JogadorJson jj = new JogadorJson(FragmentJogador.this.getActivity());
+
+                jj.listaTodosJogadores();
+
+            }
+        });
 //                String param = null;
 //                String tipo = null;
 //                if (rbPosicao.isChecked()) {
@@ -191,54 +192,8 @@ public class FragmentJogador extends Fragment {
 
 
 
-                //REQUISIÇÃO PELO VOLLEY
 
-                //Requisição do Web Service
-                JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.14:8080/RestFul/jogador/listarTodos", null,
-                        new Response.Listener<JSONObject>()
-                        {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    //lista de jogadores
-                                    List<Jogador> listaJogadores = new ArrayList<Jogador>();
 
-                                    //cria um Array com todos jogadores do banco
-                                    JSONArray jsonArray = response.getJSONArray("jogador");
-
-                                    //for para percorrer o array
-                                    for (int i = 0; i < jsonArray.length(); i++){
-
-                                        //transforma em objeto
-                                        JSONObject jogadores = jsonArray.getJSONObject(i);
-                                        Jogador j = new Jogador();
-                                        j.setNome(jogadores.getString("nome"));
-                                        listaJogadores.add(j);
-                                    }
-
-                                    //for para mostrar os nomes dos jogadores no console
-                                    for (Jogador j : listaJogadores) {
-                                        Log.d("Retorno", j.getNome());
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                        },
-                        //Erro na requisição
-                        new Response.ErrorListener()
-                        {
-                            @Override
-                            public void onErrorResponse(VolleyError volleyError) {
-                                Log.d("Error.Response", volleyError.getMessage().toString());
-                            }
-                        }
-                );
-
-                requestQueue.add(getRequest);
-            }
-        });
 
         //Carrega lista com o enum
         ufs = Arrays.asList(UF.values());
@@ -248,22 +203,22 @@ public class FragmentJogador extends Fragment {
     }
 
     public void pesquisa(String param, String tipo){
-        JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), new Clube(), param, tipo, new JogadorJson.onResponseRetrofitListenner(){
-            @Override
-            public void responseJogadores(ListaJogadores listaJogadores){
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("lista", listaJogadores);
+//        JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), new Clube(), param, tipo, new JogadorJson.onResponseRetrofitListenner(){
+//            @Override
+//            public void responseJogadores(ListaJogadores listaJogadores){
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("lista", listaJogadores);
+//
+//                FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+//                fr.setArguments(bundle);
+//                FragmentManager fm = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+//                fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+//                fragmentTransaction.commit();
+//            }
+//        });
 
-                FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
-                fr.setArguments(bundle);
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
-                fragmentTransaction.commit();
-            }
-        });
-
-        j.execute();
+        //j.execute();
     }
 
     public void onRadioButtonClicked(View view) {
