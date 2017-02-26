@@ -1,6 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.control;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -41,6 +42,7 @@ public class AdaptadorGridViewJogador extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Log.d("GRIDVIEW", "-----------------------------------------------------------------------------------------------");
         TextView tv = new TextView(context);
         tv.setText(jogadores.get(position).getNome());
         return tv;

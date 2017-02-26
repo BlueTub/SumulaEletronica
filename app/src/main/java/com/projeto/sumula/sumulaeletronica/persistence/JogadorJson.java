@@ -12,6 +12,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
+import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
@@ -38,6 +40,7 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
 
     private Context context;
     private RequestQueue requestQueue;
+    private List<Jogador> listaJogadores = new ArrayList<Jogador>();
 
 
      public JogadorJson (Context context){
@@ -45,7 +48,8 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
      }
 
 
-    public void listaTodosJogadores(){
+    public List<Jogador> listaTodosJogadores(){
+
         //REQUISIÇÃO PELO VOLLEY
 
         requestQueue = Volley.newRequestQueue(context);
@@ -57,9 +61,6 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            //lista de jogadores
-                            List<Jogador> listaJogadores = new ArrayList<Jogador>();
-
                             //cria um Array com todos jogadores do banco
                             JSONArray jsonArray = response.getJSONArray("jogador");
 
@@ -70,6 +71,14 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
                                 JSONObject jogadores = jsonArray.getJSONObject(i);
                                 Jogador j = new Jogador();
                                 j.setNome(jogadores.getString("nome"));
+                                j.setAltura(jogadores.getDouble("altura"));
+                                j.setApelido(jogadores.getString("apelido"));
+                                j.setDatanasc(jogadores.getString("datanasc"));
+                                j.setId(jogadores.getInt("id"));
+                                j.setNaturalidade(jogadores.getString("naturalidade"));
+                                j.setPeso(jogadores.getDouble("peso"));
+                                j.setPosicao(PosicaoJogador.valueOf(jogadores.getString("posicao")));
+                                j.setUf(UF.valueOf(jogadores.getString("uf")));
                                 listaJogadores.add(j);
                             }
 
@@ -77,6 +86,8 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
                             for (Jogador j : listaJogadores) {
                                 Log.d("Retorno", j.getNome());
                             }
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -94,6 +105,11 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
         );
 
         requestQueue.add(getRequest);
+        return listaJogadores;
+    }
+
+    public void listaJogadorPorNome(String nome){
+
     }
 
 

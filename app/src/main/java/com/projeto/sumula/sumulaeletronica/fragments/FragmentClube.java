@@ -20,6 +20,8 @@ import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -46,22 +48,30 @@ public class FragmentClube extends Fragment {
         gv = (GridView) view.findViewById(R.id.gvClubes);
 
 
-        ClubeJson c = new ClubeJson(FragmentClube.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
-            @Override
-            public void responseClubes(ListaClubes listaClubes) {
-                try {
-                    if (listaClubes != null) {
-                        gv.setAdapter(new AdaptadorGridViewClube(
-                                FragmentClube.this.getActivity(),
-                                listaClubes));
-                    }
-                }catch (NullPointerException e) {
-                    Toast.makeText(FragmentClube.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+        ClubeJson cj = new ClubeJson(FragmentClube.this.getActivity());
+        List<Clube> listaClubes;
+        listaClubes = cj.listaTodosClubes();
 
-        c.execute();
+        if (listaClubes != null) {
+            gv.setAdapter(new AdaptadorGridViewClube(FragmentClube.this.getActivity(), listaClubes));
+        }
+
+//        ClubeJson c = new ClubeJson(FragmentClube.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
+//            @Override
+//            public void responseClubes(ListaClubes listaClubes) {
+//                try {
+//                    if (listaClubes != null) {
+//                        gv.setAdapter(new AdaptadorGridViewClube(
+//                                FragmentClube.this.getActivity(),
+//                                listaClubes));
+//                    }
+//                }catch (NullPointerException e) {
+//                    Toast.makeText(FragmentClube.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//
+//        c.execute();
 
 
 

@@ -18,6 +18,8 @@ import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.projeto.sumula.sumulaeletronica.R;
+import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
@@ -87,8 +90,13 @@ public class FragmentJogador extends Fragment {
         completeTextView = (AutoCompleteTextView) view.findViewById(R.id.actvClubes);
         gridView = (GridView) view.findViewById(R.id.gvPCJ);
 
+        JogadorJson jj = new JogadorJson(FragmentJogador.this.getActivity());
+        List<Jogador> listaJogadores;
+        listaJogadores = jj.listaTodosJogadores();
 
-        requestQueue = Volley.newRequestQueue(FragmentJogador.this.getActivity());
+        if (listaJogadores != null) {
+            gridView.setAdapter(new AdaptadorGridViewJogador(FragmentJogador.this.getActivity(), listaJogadores));
+        }
 
         rbNome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,36 +126,34 @@ public class FragmentJogador extends Fragment {
             }
         });
 
-        gridView.setOnItemClickListener( new GridView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Clube  clube = (Clube) parent.getAdapter().getItem(position);
+//        gridView.setOnItemClickListener( new GridView.OnItemClickListener(){
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+////                Clube  clube = (Clube) parent.getAdapter().getItem(position);
+////
+////                JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
+////                    @Override
+////                    public void responseJogadores(ListaJogadores listaJogadores){
+////                        Bundle bundle = new Bundle();
+////                        bundle.putSerializable("lista", listaJogadores);
+////
+////                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+////                        fr.setArguments(bundle);
+////                        FragmentManager fm = getFragmentManager();
+////                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+////                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+////                        fragmentTransaction.commit();
+////                    }
+////                });
 //
-//                JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), clube, "", "id", new JogadorJson.onResponseRetrofitListenner(){
-//                    @Override
-//                    public void responseJogadores(ListaJogadores listaJogadores){
-//                        Bundle bundle = new Bundle();
-//                        bundle.putSerializable("lista", listaJogadores);
-//
-//                        FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
-//                        fr.setArguments(bundle);
-//                        FragmentManager fm = getFragmentManager();
-//                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-//                        fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
-//                        fragmentTransaction.commit();
-//                    }
-//                });
-
-                //j.execute();
-            }
-        });
+//                //j.execute();
+//            }
+//        });
 
         btnPesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JogadorJson jj = new JogadorJson(FragmentJogador.this.getActivity());
 
-                jj.listaTodosJogadores();
 
             }
         });

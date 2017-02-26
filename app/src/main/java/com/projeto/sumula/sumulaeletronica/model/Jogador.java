@@ -15,8 +15,8 @@ public class Jogador {
     private String nome;
     private String apelido;
     private String datanasc;
-    private float peso;
-    private float altura;
+    private double peso;
+    private double altura;
     private String naturalidade;
     private UF uf;
     private PosicaoJogador posicao;
@@ -45,16 +45,16 @@ public class Jogador {
     public void setDatanasc(String datanasc) {
         this.datanasc = datanasc;
     }
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
     public String getNaturalidade() {
