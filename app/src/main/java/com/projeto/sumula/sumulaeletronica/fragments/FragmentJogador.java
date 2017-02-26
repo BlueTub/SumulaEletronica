@@ -18,18 +18,28 @@ import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
 import com.projeto.sumula.sumulaeletronica.R;
-import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewClube;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
-import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
+import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
-import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,6 +61,8 @@ public class FragmentJogador extends Fragment {
     private static String[] CLUBES;
     private ArrayAdapter<String> adp;
     private GridView gridView;
+
+    private RequestQueue requestQueue;
 
     public FragmentJogador() {
         // Required empty public constructor
@@ -79,6 +91,9 @@ public class FragmentJogador extends Fragment {
         spnUF = (Spinner) view.findViewById(R.id.spnUF);
         completeTextView = (AutoCompleteTextView) view.findViewById(R.id.actvClubes);
         gridView = (GridView) view.findViewById(R.id.gvPCJ);
+
+
+        requestQueue = Volley.newRequestQueue(FragmentJogador.this.getActivity());
 
         rbNome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,45 +150,93 @@ public class FragmentJogador extends Fragment {
         btnPesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String param = null;
-                String tipo = null;
-                if (rbPosicao.isChecked()) {
-                    param = spnPosicao.getSelectedItem().toString();
-                    tipo = "posicao";
-                }else if (rbUF.isChecked()){
-                    param = spnUF.getSelectedItem().toString();
-                    tipo = "uf";
-                }else if (rbNome.isChecked()){
-                    param = etPesquisar.getText().toString();
-                    Log.i("PARAM", param);
-                    tipo = "nome";
-                }else if (rbClube.isChecked()){
-                    ClubeJson c = new ClubeJson(FragmentJogador.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
-                        @Override
-                        public void responseClubes(ListaClubes listaClubes) {
-                            try {
-                                if (listaClubes != null) {
-                                    gridView.setAdapter(new AdaptadorGridViewClube(
-                                            FragmentJogador.this.getActivity(),
-                                            listaClubes));
+//                String param = null;
+//                String tipo = null;
+//                if (rbPosicao.isChecked()) {
+//                    param = spnPosicao.getSelectedItem().toString();
+//                    tipo = "posicao";
+//                }else if (rbUF.isChecked()){
+//                    param = spnUF.getSelectedItem().toString();
+//                    tipo = "uf";
+//                }else if (rbNome.isChecked()){
+//                    param = etPesquisar.getText().toString();
+//                    Log.i("PARAM", param);
+//                    tipo = "nome";
+//                }else if (rbClube.isChecked()){
+//                    ClubeJson c = new ClubeJson(FragmentJogador.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
+//                        @Override
+//                        public void responseClubes(ListaClubes listaClubes) {
+//                            try {
+//                                if (listaClubes != null) {
+//                                    gridView.setAdapter(new AdaptadorGridViewClube(
+//                                            FragmentJogador.this.getActivity(),
+//                                            listaClubes));
+//                                }
+//                            }catch (NullPointerException e) {
+//                                Toast.makeText(FragmentJogador.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
+//                            }
+//                        }
+//                    });
+//
+//                    c.execute();
+//                    //param = completeTextView.getText().toString();
+//                    //tipo = "clube";
+//                }else{
+//                    Toast.makeText(FragmentJogador.this.getActivity(),
+//                            "Selecione um tipo de pesquisa", Toast.LENGTH_LONG).show();
+//                }
+//
+//                if (param != null && tipo != null)
+//                    pesquisa(param, tipo);
+
+
+
+                //REQUISIÇÃO PELO VOLLEY
+
+                //Requisição do Web Service
+                JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.14:8080/RestFul/jogador/listarTodos", null,
+                        new Response.Listener<JSONObject>()
+                        {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    //lista de jogadores
+                                    List<Jogador> listaJogadores = new ArrayList<Jogador>();
+
+                                    //cria um Array com todos jogadores do banco
+                                    JSONArray jsonArray = response.getJSONArray("jogador");
+
+                                    //for para percorrer o array
+                                    for (int i = 0; i < jsonArray.length(); i++){
+
+                                        //transforma em objeto
+                                        JSONObject jogadores = jsonArray.getJSONObject(i);
+                                        Jogador j = new Jogador();
+                                        j.setNome(jogadores.getString("nome"));
+                                        listaJogadores.add(j);
+                                    }
+
+                                    //for para mostrar os nomes dos jogadores no console
+                                    for (Jogador j : listaJogadores) {
+                                        Log.d("Retorno", j.getNome());
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            }catch (NullPointerException e) {
-                                Toast.makeText(FragmentJogador.this.getActivity(), "ERRO", Toast.LENGTH_LONG).show();
+
+                            }
+                        },
+                        //Erro na requisição
+                        new Response.ErrorListener()
+                        {
+                            @Override
+                            public void onErrorResponse(VolleyError volleyError) {
+                                Log.d("Error.Response", volleyError.getMessage().toString());
                             }
                         }
-                    });
+                );
 
-                    c.execute();
-                    //param = completeTextView.getText().toString();
-                    //tipo = "clube";
-                }else{
-                    Toast.makeText(FragmentJogador.this.getActivity(),
-                            "Selecione um tipo de pesquisa", Toast.LENGTH_LONG).show();
-                }
-
-                if (param != null && tipo != null)
-                    pesquisa(param, tipo);
-
+                requestQueue.add(getRequest);
             }
         });
 
