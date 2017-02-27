@@ -15,15 +15,27 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <GridView
-        android:id="@+id/gvClubes"
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/imageView1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@android:id/text1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:verticalSpacing="20dp"
-        android:horizontalSpacing="10dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:gravity="center_vertical"
+        android:paddingTop="6dip"/>
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gvClubes"
         android:layout_alignTop="@+id/etPesquisaClube"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="62dp" />
+        android:layout_marginTop="62dp"
+        android:numColumns="2" />
 
     <ImageButton
         android:layout_width="wrap_content"

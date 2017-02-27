@@ -24,6 +24,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.projeto.sumula.sumulaeletronica.R;
@@ -46,21 +47,21 @@ import java.util.List;
  */
 public class FragmentJogador extends Fragment {
 
-    private EditText etPesquisar;
-    private AutoCompleteTextView completeTextView;
-    private RadioGroup radioGroup;
-    private RadioButton rbNome, rbClube, rbPosicao, rbUF;
-    private Button btnPesquisar;
-    private Spinner spnUF, spnPosicao;
-    private List<PosicaoJogador> posicoes;
-    private List<UF> ufs;
-    private ArrayAdapter<UF> adapterUF;
-    private ArrayAdapter<PosicaoJogador> adapterPosicao;
-    private static String[] CLUBES;
-    private ArrayAdapter<String> adp;
+//    private EditText etPesquisar;
+//    private AutoCompleteTextView completeTextView;
+//    private RadioGroup radioGroup;
+//    private RadioButton rbNome, rbClube, rbPosicao, rbUF;
+//    private Button btnPesquisar;
+//    private Spinner spnUF, spnPosicao;
+//    private List<PosicaoJogador> posicoes;
+//    private List<UF> ufs;
+//    private ArrayAdapter<UF> adapterUF;
+//    private ArrayAdapter<PosicaoJogador> adapterPosicao;
+//    private static String[] CLUBES;
+//    private ArrayAdapter<String> adp;
     private GridView gridView;
-
-    private RequestQueue requestQueue;
+    private ImageLoader imageLoader;
+    private RequestQueue queue;
 
     public FragmentJogador() {
         // Required empty public constructor
@@ -73,22 +74,24 @@ public class FragmentJogador extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_jogador, container, false);
 
-       CLUBES = new String[]{"Corinthians", "São Paulo", "Flamengo",
-                "Palmeiras", "Vasco", "Botafogo", "Cruzeiro', 'Internacional", "Ceará", "Figueirense",
-                "Coritiba", "Fluminense", "Grêmio", "Santos", "Atlético-MG", "Bahia",
-                "Atlético-GO", "Avaí", "América-MG", "Atlético-PR"};
+//       CLUBES = new String[]{"Corinthians", "São Paulo", "Flamengo",
+//                "Palmeiras", "Vasco", "Botafogo", "Cruzeiro', 'Internacional", "Ceará", "Figueirense",
+//                "Coritiba", "Fluminense", "Grêmio", "Santos", "Atlético-MG", "Bahia",
+//                "Atlético-GO", "Avaí", "América-MG", "Atlético-PR"};
 
-        etPesquisar = (EditText) view.findViewById(R.id.etPesquisa);
-        radioGroup = (RadioGroup) view.findViewById(R.id.rgPesquisaJogador);
-        rbNome = (RadioButton) view.findViewById(R.id.rbJogadorNome);
-        rbClube = (RadioButton) view.findViewById(R.id.rbJogadorClube);
-        rbPosicao = (RadioButton) view.findViewById(R.id.rbJogadorPosicao);
-        rbUF = (RadioButton) view.findViewById(R.id.rbJogadorUF);
-        btnPesquisar = (Button) view.findViewById(R.id.btnPesquisarJogador);
-        spnPosicao = (Spinner) view.findViewById(R.id.spnPosicao);
-        spnUF = (Spinner) view.findViewById(R.id.spnUF);
-        completeTextView = (AutoCompleteTextView) view.findViewById(R.id.actvClubes);
-        gridView = (GridView) view.findViewById(R.id.gvPCJ);
+//        etPesquisar = (EditText) view.findViewById(R.id.etPesquisa);
+//        radioGroup = (RadioGroup) view.findViewById(R.id.rgPesquisaJogador);
+//        rbNome = (RadioButton) view.findViewById(R.id.rbJogadorNome);
+//        rbClube = (RadioButton) view.findViewById(R.id.rbJogadorClube);
+//        rbPosicao = (RadioButton) view.findViewById(R.id.rbJogadorPosicao);
+//        rbUF = (RadioButton) view.findViewById(R.id.rbJogadorUF);
+//        btnPesquisar = (Button) view.findViewById(R.id.btnPesquisarJogador);
+//        spnPosicao = (Spinner) view.findViewById(R.id.spnPosicao);
+//        spnUF = (Spinner) view.findViewById(R.id.spnUF);
+//        completeTextView = (AutoCompleteTextView) view.findViewById(R.id.actvClubes);
+        gridView = (GridView) view.findViewById(R.id.gvJogador);
+
+
 
         JogadorJson jj = new JogadorJson(FragmentJogador.this.getActivity());
         List<Jogador> listaJogadores;
@@ -97,34 +100,34 @@ public class FragmentJogador extends Fragment {
         if (listaJogadores != null) {
             gridView.setAdapter(new AdaptadorGridViewJogador(FragmentJogador.this.getActivity(), listaJogadores));
         }
-
-        rbNome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRadioButtonClicked(v);
-            }
-        });
-
-        rbClube.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRadioButtonClicked(v);
-            }
-        });
-
-        rbPosicao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRadioButtonClicked(v);
-            }
-        });
-
-        rbUF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onRadioButtonClicked(v);
-            }
-        });
+//
+//        rbNome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onRadioButtonClicked(v);
+//            }
+//        });
+//
+//        rbClube.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onRadioButtonClicked(v);
+//            }
+//        });
+//
+//        rbPosicao.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onRadioButtonClicked(v);
+//            }
+//        });
+//
+//        rbUF.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onRadioButtonClicked(v);
+//            }
+//        });
 
 //        gridView.setOnItemClickListener( new GridView.OnItemClickListener(){
 //            @Override
@@ -150,13 +153,13 @@ public class FragmentJogador extends Fragment {
 //            }
 //        });
 
-        btnPesquisar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
+//        btnPesquisar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//            }
+//        });
 //                String param = null;
 //                String tipo = null;
 //                if (rbPosicao.isChecked()) {
@@ -202,91 +205,91 @@ public class FragmentJogador extends Fragment {
 
 
         //Carrega lista com o enum
-        ufs = Arrays.asList(UF.values());
-        posicoes = Arrays.asList(PosicaoJogador.values());
+//        ufs = Arrays.asList(UF.values());
+//        posicoes = Arrays.asList(PosicaoJogador.values());
 
         return view;
     }
 
-    public void pesquisa(String param, String tipo){
-//        JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), new Clube(), param, tipo, new JogadorJson.onResponseRetrofitListenner(){
-//            @Override
-//            public void responseJogadores(ListaJogadores listaJogadores){
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("lista", listaJogadores);
+//    public void pesquisa(String param, String tipo){
+////        JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), new Clube(), param, tipo, new JogadorJson.onResponseRetrofitListenner(){
+////            @Override
+////            public void responseJogadores(ListaJogadores listaJogadores){
+////                Bundle bundle = new Bundle();
+////                bundle.putSerializable("lista", listaJogadores);
+////
+////                FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
+////                fr.setArguments(bundle);
+////                FragmentManager fm = getFragmentManager();
+////                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+////                fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
+////                fragmentTransaction.commit();
+////            }
+////        });
 //
-//                FragmentJogadorPesquisado fr = new FragmentJogadorPesquisado();
-//                fr.setArguments(bundle);
-//                FragmentManager fm = getFragmentManager();
-//                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-//                fragmentTransaction.replace(R.id.relativelayout_for_fragment, fr, fr.getTag());
-//                fragmentTransaction.commit();
-//            }
-//        });
+//        //j.execute();
+//    }
 
-        //j.execute();
-    }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.rbJogadorNome:
-                if (checked)
-                    btnPesquisar.setVisibility(View.VISIBLE);
-                    etPesquisar.setVisibility(View.VISIBLE);
-
-                    spnPosicao.setVisibility(View.INVISIBLE);
-                    spnUF.setVisibility(View.INVISIBLE);
-                    completeTextView.setVisibility(View.INVISIBLE);
-                break;
-            case R.id.rbJogadorClube:
-                if (checked)
-                    adp = new ArrayAdapter<>(FragmentJogador.this.getActivity(), android.R.layout.simple_dropdown_item_1line, CLUBES);
-                    completeTextView.setAdapter(adp);
-
-                    completeTextView.setVisibility(View.VISIBLE);
-                    btnPesquisar.setVisibility(View.VISIBLE);
-
-                    etPesquisar.setVisibility(View.INVISIBLE);
-                    spnPosicao.setVisibility(View.INVISIBLE);
-                    spnUF.setVisibility(View.INVISIBLE);
-                break;
-            case R.id.rbJogadorPosicao:
-                if (checked)
-                    adapterPosicao = new ArrayAdapter<>(
-                            FragmentJogador.this.getActivity(),
-                            android.R.layout.simple_spinner_item, posicoes);
-
-                    adapterPosicao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spnPosicao.setAdapter(adapterPosicao);
-
-                    btnPesquisar.setVisibility(View.VISIBLE);
-                    spnPosicao.setVisibility(View.VISIBLE);
-
-                    completeTextView.setVisibility(View.INVISIBLE);
-                    spnUF.setVisibility(View.INVISIBLE);
-                    etPesquisar.setVisibility(View.INVISIBLE);
-                    break;
-            case R.id.rbJogadorUF:
-                if (checked)
-                    adapterUF = new ArrayAdapter<>(
-                            FragmentJogador.this.getActivity(),
-                            android.R.layout.simple_spinner_item, ufs);
-
-                    adapterUF.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spnUF.setAdapter(adapterUF);
-
-                    btnPesquisar.setVisibility(View.VISIBLE);
-                    spnUF.setVisibility(View.VISIBLE);
-
-                    completeTextView.setVisibility(View.INVISIBLE);
-                    spnPosicao.setVisibility(View.INVISIBLE);
-                    etPesquisar.setVisibility(View.INVISIBLE);
-                    break;
-        }
-    }
+//    public void onRadioButtonClicked(View view) {
+//        // Is the button now checked?
+//        boolean checked = ((RadioButton) view).isChecked();
+//
+//        // Check which radio button was clicked
+//        switch(view.getId()) {
+//            case R.id.rbJogadorNome:
+//                if (checked)
+//                    btnPesquisar.setVisibility(View.VISIBLE);
+//                    etPesquisar.setVisibility(View.VISIBLE);
+//
+//                    spnPosicao.setVisibility(View.INVISIBLE);
+//                    spnUF.setVisibility(View.INVISIBLE);
+//                    completeTextView.setVisibility(View.INVISIBLE);
+//                break;
+//            case R.id.rbJogadorClube:
+//                if (checked)
+//                    adp = new ArrayAdapter<>(FragmentJogador.this.getActivity(), android.R.layout.simple_dropdown_item_1line, CLUBES);
+//                    completeTextView.setAdapter(adp);
+//
+//                    completeTextView.setVisibility(View.VISIBLE);
+//                    btnPesquisar.setVisibility(View.VISIBLE);
+//
+//                    etPesquisar.setVisibility(View.INVISIBLE);
+//                    spnPosicao.setVisibility(View.INVISIBLE);
+//                    spnUF.setVisibility(View.INVISIBLE);
+//                break;
+//            case R.id.rbJogadorPosicao:
+//                if (checked)
+//                    adapterPosicao = new ArrayAdapter<>(
+//                            FragmentJogador.this.getActivity(),
+//                            android.R.layout.simple_spinner_item, posicoes);
+//
+//                    adapterPosicao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                    spnPosicao.setAdapter(adapterPosicao);
+//
+//                    btnPesquisar.setVisibility(View.VISIBLE);
+//                    spnPosicao.setVisibility(View.VISIBLE);
+//
+//                    completeTextView.setVisibility(View.INVISIBLE);
+//                    spnUF.setVisibility(View.INVISIBLE);
+//                    etPesquisar.setVisibility(View.INVISIBLE);
+//                    break;
+//            case R.id.rbJogadorUF:
+//                if (checked)
+//                    adapterUF = new ArrayAdapter<>(
+//                            FragmentJogador.this.getActivity(),
+//                            android.R.layout.simple_spinner_item, ufs);
+//
+//                    adapterUF.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                    spnUF.setAdapter(adapterUF);
+//
+//                    btnPesquisar.setVisibility(View.VISIBLE);
+//                    spnUF.setVisibility(View.VISIBLE);
+//
+//                    completeTextView.setVisibility(View.INVISIBLE);
+//                    spnPosicao.setVisibility(View.INVISIBLE);
+//                    etPesquisar.setVisibility(View.INVISIBLE);
+//                    break;
+//        }
+//    }
 
 }

@@ -70,13 +70,10 @@ public class ClubeJson {//extends AsyncTask<Void, Void, ListaClubes>{
                                 j.setNome(jogadores.getString("nome"));
                                 j.setId(jogadores.getInt("id"));
                                 j.setUf(UF.valueOf(jogadores.getString("uf")));
+                                j.setImg("http://192.168.0.14:8080/RestFul/imagem/escudo/" + j.getId());
+
                                 listaClubes.add(j);
                             }
-                            for (Clube c : listaClubes) {
-                                Log.d("Retorno", c.getNome());
-                            }
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

@@ -2,11 +2,16 @@ package com.projeto.sumula.sumulaeletronica.control;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.ListaClubes;
 
@@ -21,10 +26,14 @@ public class AdaptadorGridViewClube extends BaseAdapter {
 
     private Context context;
     private List<Clube> listaClubes;
+    private ImageLoader  imageLoader;
+    private LayoutInflater inflater;
 
-    public AdaptadorGridViewClube(Context context, List<Clube> listaClubes) {
+    public AdaptadorGridViewClube(Context context, List<Clube> listaClubes, ImageLoader imageLoader) {
         this.context = context;
         this.listaClubes = listaClubes;
+        this.imageLoader = imageLoader;
+        this.inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -43,10 +52,35 @@ public class AdaptadorGridViewClube extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        TextView tv = new TextView(context);
-        tv.setText(listaClubes.get(position).getNome());
-        return tv;
+    public View getView(int position, View view, ViewGroup parent) {
+
+        ViewHolder holder;
+
+        if(view == null){
+            view = inflater.inflate(R.layout.item, null);
+            holder = new ViewHolder();
+            view.setTag(holder);
+
+            holder.networkImageView = (NetworkImageView) view.findViewById(R.id.nivImg);
+            holder.imageView = (ImageView) view.findViewById(R.id.ivImg);
+            holder.textView = (TextView) view.findViewById(R.id.tvTitle);
+
+        }else{
+            holder = (ViewHolder) view.getTag();
+        }
+
+        //NETWORK
+        holder.networkImageView.setVisibility(view.VISIBLE);
+        holder.networkImageView.setImageUrl(listaClubes.get(position).getImg(), imageLoader);
+
+        holder.textView.setText(listaClubes.get(position).getNome());
+        //IMAE VIEW
+        //imageLoader.get(listaClubes.get(position).getImg(), null);
+
+        return view;
+//        TextView tv = new TextView(context);
+//        tv.setText(listaClubes.get(position).getNome());
+//        return tv;
 
         //listaClubes.clube.get(position).setImagem(ViewClube.imagens.get(position));
 
@@ -56,5 +90,11 @@ public class AdaptadorGridViewClube extends BaseAdapter {
 //        //iv.setAdjustViewBounds(true);
 //        iv.setImageResource(listaClubes.clube.get(position).getImagem());
 //        return iv;
+    }
+
+    public static class ViewHolder{
+        NetworkImageView networkImageView;
+        ImageView imageView;
+        TextView textView;
     }
 }

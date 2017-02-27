@@ -27,16 +27,16 @@ public class Clube implements Serializable {
     private String dataFundacao;
     private String nome;
     private Estadio estadio;
-    private int imagem;
     private UF uf;
     private Tecnico tecnico;
+    private String img;
 
-    public int getImagem() {
-        return imagem;
+    public String getImg() {
+        return img;
     }
 
-    public void setImagem(int imagem) {
-        this.imagem = imagem;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getDataFundacao() {
