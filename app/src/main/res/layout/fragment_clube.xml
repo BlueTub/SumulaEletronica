@@ -30,12 +30,15 @@
         android:paddingTop="6dip"/>
 
     <GridView
+        android:id="@+id/gvClubes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gvClubes"
+        android:numColumns="auto_fit"
+        android:columnWidth="60dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
         android:layout_alignTop="@+id/etPesquisaClube"
-        android:layout_marginTop="62dp"
-        android:numColumns="2" />
+        android:layout_marginTop="62dp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
