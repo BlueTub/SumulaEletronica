@@ -57,6 +57,7 @@ public class AdaptadorGridViewClube extends BaseAdapter {
         ViewHolder holder;
 
         if(view == null){
+            //view =  inflater.inflate(R.layout.fragment_clube, parent, false);
             view = inflater.inflate(R.layout.item, null);
             holder = new ViewHolder();
             view.setTag(holder);
