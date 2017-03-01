@@ -57,7 +57,6 @@ public class AdaptadorGridViewClube extends BaseAdapter {
         ViewHolder holder;
 
         if(view == null){
-           // view =  inflater.inflate(R.layout.fragment_clube, parent, false);
             view = inflater.inflate(R.layout.item, parent, false);
             holder = new ViewHolder();
             view.setTag(holder);
@@ -70,28 +69,18 @@ public class AdaptadorGridViewClube extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        //NETWORK
         holder.networkImageView.setVisibility(view.VISIBLE);
         holder.networkImageView.setImageUrl(listaClubes.get(position).getImg(), imageLoader);
+
+        //Imagem que aparece enquanto esta carregando
         holder.networkImageView.setDefaultImageResId(R.drawable.loading);
+
+        //Imagem quando não houver imagem ou de erro no carregamento
         holder.networkImageView.setErrorImageResId(R.drawable.error);
+
         holder.textView.setText(listaClubes.get(position).getNome());
-        //IMAE VIEW
-        //imageLoader.get(listaClubes.get(position).getImg(), null);
 
         return view;
-//        TextView tv = new TextView(context);
-//        tv.setText(listaClubes.get(position).getNome());
-//        return tv;
-
-        //listaClubes.clube.get(position).setImagem(ViewClube.imagens.get(position));
-
-
-
-//        ImageView iv = new ImageView(context);
-//        //iv.setAdjustViewBounds(true);
-//        iv.setImageResource(listaClubes.clube.get(position).getImagem());
-//        return iv;
     }
 
     public static class ViewHolder{

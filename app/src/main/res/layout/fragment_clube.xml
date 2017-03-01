@@ -23,15 +23,19 @@
         android:columnWidth="60dp"
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
-        android:layout_marginTop="62dp"/>
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/imPesquisaClube"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_menu_search"
         android:id="@+id/imPesquisaClube"
-        android:layout_marginStart="13dp" />
-
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="13dp"
+        android:layout_below="@+id/tvEscolha"
+        android:layout_toEndOf="@+id/tvEscolha" />
 
 
 </RelativeLayout>

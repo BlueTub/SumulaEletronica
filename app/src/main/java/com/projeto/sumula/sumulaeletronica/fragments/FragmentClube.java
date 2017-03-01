@@ -46,15 +46,16 @@ public class FragmentClube extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        Toast.makeText(FragmentClube.this.getActivity(), "destruiu", Toast.LENGTH_LONG).show();
-        super.onDestroy();
+    public void onResume() {
+        super.onResume();
+
+        ClubeJson cj = new ClubeJson(FragmentClube.this.getActivity());
+        listaClubes = cj.listaTodosClubes();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Toast.makeText(FragmentClube.this.getActivity(), "Iniciou", Toast.LENGTH_LONG).show();
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_clube, container, false);
 
@@ -75,13 +76,6 @@ public class FragmentClube extends Fragment {
                 cache.put(url, bitmap);
             }
         });
-
-
-        ClubeJson cj = new ClubeJson(FragmentClube.this.getActivity());
-        listaClubes = cj.listaTodosClubes();
-
-
-
 
 //        ClubeJson c = new ClubeJson(FragmentClube.this.getActivity(), new ClubeJson.onResponseRetrofitListenner() {
 //            @Override
