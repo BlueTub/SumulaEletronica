@@ -12,6 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.projeto.sumula.sumulaeletronica.enumeration.BaseURL;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
@@ -55,7 +56,7 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
         requestQueue = Volley.newRequestQueue(context);
 
         //Requisição do Web Service
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.14:8080/RestFul/jogador/listarTodos", null,
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, BaseURL.URL.caminho + "jogador/listarTodos", null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override

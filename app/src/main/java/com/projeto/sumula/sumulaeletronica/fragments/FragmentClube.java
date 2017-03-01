@@ -38,6 +38,7 @@ public class FragmentClube extends Fragment {
         private GridView gv;
         private ImageLoader imageLoader;
         private RequestQueue queue;
+        private List<Clube> listaClubes;
 
 
     public FragmentClube() {
@@ -75,6 +76,9 @@ public class FragmentClube extends Fragment {
             }
         });
 
+
+        ClubeJson cj = new ClubeJson(FragmentClube.this.getActivity());
+        listaClubes = cj.listaTodosClubes();
 
 
 
@@ -142,10 +146,6 @@ public class FragmentClube extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ClubeJson cj = new ClubeJson(FragmentClube.this.getActivity());
-                List<Clube> listaClubes;
-                listaClubes = cj.listaTodosClubes();
-
                 if (listaClubes != null) {
                     gv.setAdapter(new AdaptadorGridViewClube(FragmentClube.this.getActivity(), listaClubes, imageLoader));
                 }

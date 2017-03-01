@@ -12,6 +12,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.projeto.sumula.sumulaeletronica.enumeration.BaseURL;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
@@ -54,7 +55,7 @@ public class ClubeJson {//extends AsyncTask<Void, Void, ListaClubes>{
         requestQueue = Volley.newRequestQueue(context);
 
         //Requisição do Web Service
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, "http://192.168.0.14:8080/RestFul/clube/listarTodos", null,
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, BaseURL.URL.caminho + "clube/listarTodos", null,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
@@ -70,7 +71,7 @@ public class ClubeJson {//extends AsyncTask<Void, Void, ListaClubes>{
                                 j.setNome(jogadores.getString("nome"));
                                 j.setId(jogadores.getInt("id"));
                                 j.setUf(UF.valueOf(jogadores.getString("uf")));
-                                j.setImg("http://192.168.0.14:8080/RestFul/imagem/escudo/" + j.getId());
+                                j.setImg(BaseURL.URL.caminho + "imagem/escudo/" + j.getId());
 
                                 listaClubes.add(j);
                             }
