@@ -20,6 +20,15 @@ public class Jogador {
     private String naturalidade;
     private UF uf;
     private PosicaoJogador posicao;
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public int getId() {
         return id;

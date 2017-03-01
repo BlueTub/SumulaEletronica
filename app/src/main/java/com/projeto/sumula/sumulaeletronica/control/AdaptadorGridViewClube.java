@@ -83,7 +83,7 @@ public class AdaptadorGridViewClube extends BaseAdapter {
         return view;
     }
 
-    public static class ViewHolder{
+    private static class ViewHolder{
         NetworkImageView networkImageView;
         ImageView imageView;
         TextView textView;

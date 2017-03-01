@@ -67,13 +67,13 @@ public class ClubeJson {//extends AsyncTask<Void, Void, ListaClubes>{
 
                                 //transforma em objeto
                                 JSONObject jogadores = jsonArray.getJSONObject(i);
-                                Clube j = new Clube();
-                                j.setNome(jogadores.getString("nome"));
-                                j.setId(jogadores.getInt("id"));
-                                j.setUf(UF.valueOf(jogadores.getString("uf")));
-                                j.setImg(BaseURL.URL.caminho + "imagem/escudo/" + j.getId());
+                                Clube c = new Clube();
+                                c.setNome(jogadores.getString("nome"));
+                                c.setId(jogadores.getInt("id"));
+                                c.setUf(UF.valueOf(jogadores.getString("uf")));
+                                c.setImg(BaseURL.URL.caminho + "imagem/escudo/" + c.getId());
 
-                                listaClubes.add(j);
+                                listaClubes.add(c);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

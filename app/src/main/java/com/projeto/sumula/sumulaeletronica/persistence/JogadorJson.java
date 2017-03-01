@@ -80,6 +80,7 @@ public class JogadorJson {//extends AsyncTask<Void, Void, ListaJogadores> {
                                 j.setPeso(jogadores.getDouble("peso"));
                                 j.setPosicao(PosicaoJogador.valueOf(jogadores.getString("posicao")));
                                 j.setUf(UF.valueOf(jogadores.getString("uf")));
+                                j.setImg(BaseURL.URL.caminho + "imagem/foto/" + j.getId());
                                 listaJogadores.add(j);
                             }
 

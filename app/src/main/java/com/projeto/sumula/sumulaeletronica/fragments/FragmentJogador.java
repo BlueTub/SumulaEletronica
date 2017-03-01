@@ -1,10 +1,12 @@
 package com.projeto.sumula.sumulaeletronica.fragments;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -62,11 +65,21 @@ public class FragmentJogador extends Fragment {
     private GridView gridView;
     private ImageLoader imageLoader;
     private RequestQueue queue;
+    private List<Jogador> listaJogadores;
+    private ImageButton imageButton;
 
     public FragmentJogador() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        JogadorJson jj = new JogadorJson(FragmentJogador.this.getActivity());
+        listaJogadores = jj.listaTodosJogadores();
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,16 +103,33 @@ public class FragmentJogador extends Fragment {
 //        spnUF = (Spinner) view.findViewById(R.id.spnUF);
 //        completeTextView = (AutoCompleteTextView) view.findViewById(R.id.actvClubes);
         gridView = (GridView) view.findViewById(R.id.gvJogador);
+        imageButton = (ImageButton) view.findViewById(R.id.ibPesquisarJogador);
+
+        queue = Volley.newRequestQueue(FragmentJogador.this.getContext());
+
+        imageLoader = new ImageLoader(queue, new ImageLoader.ImageCache() {
+            private final LruCache<String, Bitmap> cache = new LruCache<String, Bitmap>(10);
+            @Override
+            public Bitmap getBitmap(String url) {
+                return cache.get(url);
+            }
+
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+                cache.put(url, bitmap);
+            }
+        });
 
 
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listaJogadores != null) {
+                    gridView.setAdapter(new AdaptadorGridViewJogador(FragmentJogador.this.getActivity(), listaJogadores, imageLoader));
+                }
+            }
+        });
 
-        JogadorJson jj = new JogadorJson(FragmentJogador.this.getActivity());
-        List<Jogador> listaJogadores;
-        listaJogadores = jj.listaTodosJogadores();
-
-        if (listaJogadores != null) {
-            gridView.setAdapter(new AdaptadorGridViewJogador(FragmentJogador.this.getActivity(), listaJogadores));
-        }
 //
 //        rbNome.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -210,6 +240,8 @@ public class FragmentJogador extends Fragment {
 
         return view;
     }
+
+
 
 //    public void pesquisa(String param, String tipo){
 ////        JogadorJson j = new JogadorJson(FragmentJogador.this.getActivity(), new Clube(), param, tipo, new JogadorJson.onResponseRetrofitListenner(){

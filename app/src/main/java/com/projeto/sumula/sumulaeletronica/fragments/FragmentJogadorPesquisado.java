@@ -36,9 +36,9 @@ public class FragmentJogadorPesquisado extends Fragment {
 
         gv = (GridView) view.findViewById(R.id.gvJogadores);
 
-        gv.setAdapter( new AdaptadorGridViewJogador(
-                FragmentJogadorPesquisado.this.getContext(),
-                listaJogadores.jogador));
+//        gv.setAdapter( new AdaptadorGridViewJogador(
+//                FragmentJogadorPesquisado.this.getContext(),
+//                listaJogadores.jogador));
 
         gv.setOnItemClickListener( new GridView.OnItemClickListener() {
             @Override
