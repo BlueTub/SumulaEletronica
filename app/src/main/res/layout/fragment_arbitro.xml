@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentArbitro">
+    tools:context="com.projeto.sumula.sumulaeletronica.fragments.arbitro.FragmentArbitro">
 
     <!-- TODO: Update blank fragment layout -->
 

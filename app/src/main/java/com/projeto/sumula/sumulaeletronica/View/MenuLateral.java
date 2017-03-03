@@ -15,12 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.projeto.sumula.sumulaeletronica.R;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentArbitro;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentEstadio;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentPartidas;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentTabsArbitro;
+import com.projeto.sumula.sumulaeletronica.fragments.arbitro.FragmentTabsArbitro;
 
 public class MenuLateral extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -111,7 +110,7 @@ public class MenuLateral extends AppCompatActivity
             transaction(fragmentJogador);
 
         } else if (id == R.id.nav_arbitro) {
-            FragmentArbitro fragmentArbitro = new FragmentArbitro();
+            FragmentTabsArbitro fragmentArbitro = new FragmentTabsArbitro();
             transaction(fragmentArbitro);
 
         } else if (id == R.id.nav_estadio) {
