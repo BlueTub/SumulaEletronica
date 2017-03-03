@@ -85,4 +85,5 @@
         android:textAllCaps="true"
         android:layout_above="@+id/btnTorcedor"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

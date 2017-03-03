@@ -15,6 +15,24 @@ public class Estadio {
     private int capacidade;
     private String dataInauguracao;
     private String endereco;
+    private int foto;
+
+    public Estadio(String nome, UF uf, int capacidade, String dataInauguracao, String endereco, int foto) {
+        this.nome = nome;
+        this.uf = uf;
+        this.capacidade = capacidade;
+        this.dataInauguracao = dataInauguracao;
+        this.endereco = endereco;
+        this.foto = foto;
+    }
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
 
     public String getNome() {
         return nome;
