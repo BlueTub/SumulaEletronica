@@ -1,6 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.control;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +62,7 @@ public class AdaptadorGridViewJogador extends BaseAdapter {
 
             holder.networkImageView = (NetworkImageView) view.findViewById(R.id.nivImgJogador);
             holder.textView = (TextView) view.findViewById(R.id.tvTitleJogador);
+            holder.tvPosicao= (TextView) view.findViewById(R.id.tvPosicaoJogador);
 
         }else{
             holder = (ViewHolder) view.getTag();
@@ -76,6 +78,10 @@ public class AdaptadorGridViewJogador extends BaseAdapter {
         holder.networkImageView.setErrorImageResId(R.drawable.error);
 
         holder.textView.setText(jogadores.get(position).getNome());
+        holder.tvPosicao.setText(jogadores.get(position).getPosicao().getDescricao());
+
+        //Nome em negrito
+        holder.textView.setTypeface(null, Typeface.BOLD);
 
         return view;
     }
@@ -83,5 +89,6 @@ public class AdaptadorGridViewJogador extends BaseAdapter {
     private static class ViewHolder{
         NetworkImageView networkImageView;
         TextView textView;
+        TextView tvPosicao;
     }
 }
