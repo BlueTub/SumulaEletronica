@@ -1,112 +1,82 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.projeto.sumula.sumulaeletronica.fragments.FragmentPartidas">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_toEndOf="@+id/rgCampeonato"
-        android:layout_marginStart="20dp"
-        android:id="@+id/rgPesquisa">
-
-        <RadioButton
-            android:text="Clube"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rbClube"
-            android:layout_weight="1"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"/>
-
-        <RadioButton
-            android:text="Data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rbData"
-            android:onClick="onRadioButtonClicked"/>
-    </RadioGroup>
-
-        <TextView
-        android:text="Partida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-        <DatePicker
+        <ImageView
+            android:id="@+id/imageEstadioPartida"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/datePicker"
-            android:layout_marginTop="146dp"
-            android:visibility="invisible"
-            android:datePickerMode="spinner"
-            android:spinnersShown="true"
-            android:layout_below="@+id/rgPesquisa"
-            android:layout_alignStart="@+id/etPesquisarPartidaClube" />
+            android:layout_height="150dp"
+            android:contentDescription="Estadio"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
-        <TextView
-        android:text="Pesquisar por: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:id="@+id/textView4"
-            android:layout_below="@+id/rgCampeonato"
-            android:layout_toStartOf="@+id/rgPesquisa" />
-
-        <EditText
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Nome do clube"
-            android:ems="10"
-            android:id="@+id/etPesquisarPartidaClube"
-            android:visibility="invisible"
-            android:layout_below="@+id/rgPesquisa"
-            android:layout_alignStart="@+id/textView4"
-            android:layout_marginTop="51dp" />
+            android:layout_below="@+id/imageEstadioPartida"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_menu_search"
-            android:id="@+id/imageButton"
-            android:visibility="invisible"
-            android:layout_alignBottom="@+id/etPesquisarPartidaClube"
-            android:layout_toEndOf="@+id/etPesquisarPartidaClube"
-            android:layout_marginStart="11dp" />
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
-            android:id="@+id/rgCampeonato"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentStart="true">
-
-            <RadioButton
-                android:text="Paulista"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvNomeEstadio"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rbPaulista"
-                android:layout_weight="1" />
+                android:layout_marginBottom="10dp"
+                android:text="Estadio"
+                android:textSize="18sp" />
 
-            <RadioButton
-                android:text="Brasielirão"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rbBrasileirao"
-                android:layout_weight="1"
-                android:checked="true" />
-        </RadioGroup>
+            <AbsoluteLayout
+                android:layout_width="match_parent"
+                android:layout_height="129dp">
+
+                <ImageView
+                    android:id="@+id/imageArbitro"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="Estadio"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_x="262dp"
+                    android:layout_y="0dp" />
+
+                <TextView
+                    android:id="@+id/tvNomeArbitro"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Arbitro"
+                    android:textSize="18sp"
+                    android:layout_x="168dp"
+                    android:layout_y="106dp" />
+
+            </AbsoluteLayout>
+
+            <ExpandableListView
+                android:id="@+id/lvExp"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+            <AbsoluteLayout
+                android:layout_width="match_parent"
+                android:layout_height="132dp">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabSumula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/fab_margin"
+                    app:srcCompat="@drawable/sumula"
+                    android:layout_x="20dp"
+                    android:layout_y="91dp"
+                    app:backgroundTint="?attr/actionMenuTextColor" />
+            </AbsoluteLayout>
+
+        </LinearLayout>
+
     </RelativeLayout>
 </ScrollView>

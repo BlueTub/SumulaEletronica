@@ -4,35 +4,35 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_clube"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/clube"
             android:title="Clube" />
         <item
             android:id="@+id/nav_jogador"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/jogadores"
             android:title="Jogador" />
         <item
             android:id="@+id/nav_arbitro"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/arbitro"
             android:title="Árbitro" />
         <item
             android:id="@+id/nav_estadio"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/estadio"
             android:title="Estádio" />
         <item
             android:id="@+id/nav_campeonato"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/campeonato"
             android:title="Campeonato" />
         <item
             android:id="@+id/nav_sumula"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/sumula"
             android:title="Súmula" />
         <item
             android:id="@+id/nav_sentenca"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/judge"
             android:title="Sentença" />
         <item
             android:id="@+id/nav_partidas"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/partidas"
             android:title="Partidas" />
     </group>
 
