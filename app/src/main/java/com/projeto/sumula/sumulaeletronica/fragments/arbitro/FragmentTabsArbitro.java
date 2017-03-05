@@ -2,12 +2,16 @@ package com.projeto.sumula.sumulaeletronica.fragments.arbitro;
 
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,9 +70,9 @@ public class FragmentTabsArbitro extends Fragment {
 
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments[] = {"Partidas",
-                "Sentenças",
-                "Informações"};
+        private int fragments[] = {R.drawable.ball,
+                R.drawable.judge,
+                R.drawable.information};
 
         public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
@@ -96,7 +100,27 @@ public class FragmentTabsArbitro extends Fragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return fragments[position];
+            Drawable image = FragmentTabsArbitro.this.getActivity().
+                    getResources().
+                    getDrawable(fragments[position]);
+            image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+
+            SpannableString sb = null;
+
+            if(position == 0){
+                sb = new SpannableString("  Partidas");
+            }else if (position == 1){
+                sb = new SpannableString("  Sentenças");
+            }else if (position == 2){
+                sb = new SpannableString("  Inf.");
+            }
+
+
+            ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+            sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            return sb;
+
+           // return fragments[position];
         }
     }
 }
