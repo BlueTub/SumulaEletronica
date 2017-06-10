@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.sumula.sumulaeletronica.fragments.cadastro.FragmentCadastro">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="Nome:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tvNome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtNome"
+        android:textSize="14sp"
+        android:layout_below="@+id/tvNome"
+        android:layout_alignStart="@+id/tvNome" />
+
+    <TextView
+        android:text="CPF:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNome"
+        android:layout_alignStart="@+id/txtNome"
+        android:layout_marginTop="12dp"
+        android:id="@+id/tvCPF" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/tvCPF"
+        android:layout_alignStart="@+id/tvCPF"
+        android:id="@+id/txtCPF"
+        android:textSize="14sp" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_marginBottom="160dp"
+        android:id="@+id/etUsuario"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/txtCPF"
+        android:layout_alignEnd="@+id/txtNome" />
+
+    <TextView
+        android:text="Usuario:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etUsuario"
+        android:layout_alignStart="@+id/etUsuario"
+        android:id="@+id/tvUsuario" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:id="@+id/spinTipo"
+        android:layout_below="@+id/txtCPF"
+        android:layout_alignEnd="@+id/textView6"
+        android:layout_alignStart="@+id/txtCPF" />
+
+    <TextView
+        android:text="Registro:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvRegistro"
+        android:layout_above="@+id/txtRegistro"
+        android:layout_alignEnd="@+id/tvUsuario" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtRegistro"
+        android:textSize="14sp"
+        android:layout_marginBottom="32dp"
+        android:layout_above="@+id/tvUsuario"
+        android:layout_alignStart="@+id/tvUsuario" />
+
+    <TextView
+        android:text="Tipo de Cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/txtCPF"
+        android:layout_alignEnd="@+id/txtNome"
+        android:layout_marginEnd="16dp" />
+
+    <TextView
+        android:text="Senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUsuario"
+        android:layout_alignStart="@+id/etUsuario"
+        android:layout_marginTop="71dp"
+        android:id="@+id/tvSenha" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/txtSenha"
+        android:textSize="14sp"
+        android:layout_below="@+id/tvSenha"
+        android:layout_alignStart="@+id/tvSenha"
+        android:layout_alignEnd="@+id/etUsuario" />
+
+    <Button
+        android:text="Finalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFinalizar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/txtSenha"
+        android:layout_marginBottom="13dp" />
+</RelativeLayout>
