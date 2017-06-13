@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
-import com.projeto.sumula.sumulaeletronica.fragments.cadastro.FragmentCadastro;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 ConnectivityManager manager = (ConnectivityManager)getSystemService(MainActivity.CONNECTIVITY_SERVICE);
                 if (isNetworkConnected(manager)){
-                    FragmentCadastro fragmentCadastro = new FragmentCadastro();
-                    transaction(fragmentCadastro);
+                    Intent intent = new Intent(MainActivity.this, ActivityCadastro.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(MainActivity.this, "Falha ao encontrar rede", Toast.LENGTH_SHORT).show();
                 }
