@@ -24,6 +24,7 @@
         android:verticalSpacing="20dp"
         android:horizontalSpacing="10dp"
         android:layout_marginTop="18dp"
+        android:numColumns="auto_fit"
         android:layout_below="@+id/ibPesquisarJogador"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

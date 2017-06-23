@@ -10,25 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.projeto.sumula.sumulaeletronica.View.MainActivity">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/etLogin"
+        android:layout_below="@+id/tvLogin"
+        android:layout_alignParentStart="true" />
+
     <TextView
         android:text="Login: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNomes"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/tvLogin"
-        android:textSize="18sp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/etSenha"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/etLogin"
-        android:layout_alignStart="@+id/etLogin" />
+        android:textSize="18sp"
+        android:layout_below="@+id/txtNomes"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Senha: "
@@ -36,62 +35,65 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvSenha"
         android:textSize="18sp"
-        android:layout_alignBaseline="@+id/etSenha"
-        android:layout_alignBottom="@+id/etSenha"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etLogin"
-        android:layout_marginStart="18dp"
-        android:layout_alignBaseline="@+id/tvLogin"
-        android:layout_alignBottom="@+id/tvLogin"
-        android:layout_alignStart="@+id/txtNomes" />
+        android:layout_below="@+id/etLogin"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:text="Juiz / CBF / Time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
         android:id="@+id/txtNomes"
         android:textSize="24sp"
         android:textAllCaps="true"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/tvTorcedor" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Entrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin"
+        android:layout_alignBottom="@+id/etSenha"
+        android:layout_alignEnd="@+id/btnTorcedor" />
 
     <Button
         android:text="Torcedor"
         android:layout_height="wrap_content"
         android:id="@+id/btnTorcedor"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="55dp"
         android:elevation="24dp"
         android:textSize="18sp"
         android:fontFamily="sans-serif-medium"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/etSenha"
+        android:layout_below="@+id/tvSenha"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCadastrar"
+        android:text="Criar Conta"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="É torcedor ?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:id="@+id/tvTorcedor"
         android:textSize="30sp"
         android:textStyle="normal|bold"
         android:textAllCaps="true"
-        android:layout_above="@+id/btnTorcedor"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Cadastrar-se"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnCadastrar"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
