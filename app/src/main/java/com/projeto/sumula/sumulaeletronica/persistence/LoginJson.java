@@ -24,7 +24,7 @@ public class LoginJson {
 
     private Context context;
     private RequestQueue requestQueue;
-    private Usuario u = new Usuario();
+    private Usuario u;
 
     public LoginJson (Context context){
         this.context = context;
@@ -32,6 +32,7 @@ public class LoginJson {
 
     public Usuario login(String usuario, String senha){
         requestQueue = Volley.newRequestQueue(context);
+        u = new Usuario();
 
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, BaseURL.URL.caminho + "usuario/login/" + usuario + "/" + senha, null,
                 new Response.Listener<JSONObject>()

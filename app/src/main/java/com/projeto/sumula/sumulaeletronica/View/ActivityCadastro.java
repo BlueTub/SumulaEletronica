@@ -11,6 +11,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
+import com.projeto.sumula.sumulaeletronica.enumeration.Tipo;
+import com.projeto.sumula.sumulaeletronica.model.Cadastro;
+import com.projeto.sumula.sumulaeletronica.model.Usuario;
+import com.projeto.sumula.sumulaeletronica.persistence.CadastroJson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +49,8 @@ public class ActivityCadastro extends AppCompatActivity {
         tipos.add("CBF");
         tipos.add("Clube");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
-        ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+        ArrayAdapter<Tipo> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Tipo.values());
+        ArrayAdapter<Tipo> spinnerArrayAdapter = arrayAdapter;
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinTipo.setAdapter(spinnerArrayAdapter);
 
@@ -62,6 +66,26 @@ public class ActivityCadastro extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        btnFinalizar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Usuario usuario = new Usuario();
+                Cadastro cadastro = new Cadastro();
+
+                usuario.setUsuario(txtUsuario.getText().toString());
+                usuario.setSenha(txtSenha.getText().toString());
+                cadastro.setCpf(txtCpf.getText().toString());
+                cadastro.setNome(txtNome.getText().toString());
+                cadastro.setRegistro(txtRegistro.getText().toString());
+                cadastro.setTipo((Tipo) spinTipo.getSelectedItem());
+                cadastro.setUsuario(usuario);
+
+                CadastroJson cadastroJson = new CadastroJson(ActivityCadastro.this);
+                cadastroJson.realizarCadastro(cadastro);
 
             }
         });
