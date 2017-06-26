@@ -18,6 +18,7 @@ public class Arbitro implements Serializable{
     private String ufDescricao;
     private SituacaoJuiz situacao;
     private String situacaoDescritivo;
+    private String caminhoimg;
 
     public int getId() {
         return id;
@@ -73,6 +74,14 @@ public class Arbitro implements Serializable{
 
     public void setSituacaoDescritivo(String situacaoDescritivo) {
         this.situacaoDescritivo = situacaoDescritivo;
+    }
+
+    public String getCaminhoimg() {
+        return caminhoimg;
+    }
+
+    public void setCaminhoimg(String caminhoimg) {
+        this.caminhoimg = caminhoimg;
     }
 }
 

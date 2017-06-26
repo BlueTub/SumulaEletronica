@@ -4,7 +4,7 @@ android {
 
     useLibrary 'org.apache.http.legacy' //libera o http legado do appcompat 22.2.0
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.projeto.sumula.sumulaeletronica"
         minSdkVersion 19
