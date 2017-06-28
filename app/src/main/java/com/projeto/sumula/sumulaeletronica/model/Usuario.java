@@ -43,4 +43,5 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
+
 }
