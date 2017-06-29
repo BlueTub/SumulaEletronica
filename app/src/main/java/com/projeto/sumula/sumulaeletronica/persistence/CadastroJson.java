@@ -39,72 +39,83 @@ public class CadastroJson {
 
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        StringRequest postRequest = new StringRequest(Request.Method.POST, BaseURL.URL.caminho + "cadastro/insereCadastro",
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Log.d("Response", response);
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Log.d("Error.Response", error.getMessage());
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<>();
-
-                params.put("nome", cadastro.getNome());
-                params.put("cpf", cadastro.getCpf());
-                params.put("registro", cadastro.getRegistro());
-                params.put("tipo", cadastro.getTipo().name());
-                params.put("usuario", cadastro.getUsuario().getUsuario());
-                params.put("senha", cadastro.getUsuario().getSenha());
-                Log.d("Request", cadastro.getNome());
-                return params;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("Content-Type","application/json");
-                return params;
-            }
-        };
-
-//        Map<String, String> params = new HashMap();
-//        params.put("nome", cadastro.getNome());
-//        params.put("cpf", cadastro.getCpf());
-//        params.put("registro", cadastro.getRegistro());
-//        params.put("tipo", cadastro.getTipo().name());
-//        params.put("usuario", cadastro.getUsuario().getUsuario());
-//        params.put("senha", cadastro.getUsuario().getSenha());
-//        Log.d("Request", cadastro.getUsuario().getUsuario());
+//        StringRequest postRequest = new StringRequest(Request.Method.POST, BaseURL.URL.caminho + "cadastro/insereCadastro",
+//                new Response.Listener<String>()
+//                {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        // response
+//                        try {
+//                            Log.d("Response", response);
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener()
+//                {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        try {
+//                            Log.d("Error.Response", error.getMessage());
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                        }
 //
-//        JSONObject parameters = new JSONObject(params);
-//
-//        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, BaseURL.URL.caminho + "cadastro/insereCadastro", parameters,
-//                new Response.Listener<JSONObject>() {
+//                    }
+//                }
+//        ) {
 //            @Override
-//            public void onResponse(JSONObject response) {
-//                Log.i("Response", "SUCESSO : " + response);
+//            protected Map<String, String> getParams()
+//            {
+//                Map<String, String>  params = new HashMap<>();
+//
+//                params.put("nome", cadastro.getNome());
+//                params.put("cpf", cadastro.getCpf());
+//                params.put("registro", cadastro.getRegistro());
+//                params.put("tipo", cadastro.getTipo().name());
+//                params.put("usuario", cadastro.getUsuario().getUsuario());
+//                params.put("senha", cadastro.getUsuario().getSenha());
+//                Log.d("Request", cadastro.getNome());
+//                return params;
 //            }
 //
-//        }, new Response.ErrorListener() {
 //            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                error.printStackTrace();
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                Map<String,String> params = new HashMap<>();
+//                params.put("Content-Type","application/json");
+//                return params;
 //            }
-//
-//
-//        });
+//        };
+
+        Map<String, String> params = new HashMap();
+        params.put("nome", cadastro.getNome());
+        params.put("cpf", cadastro.getCpf());
+        params.put("registro", cadastro.getRegistro());
+        params.put("tipo", cadastro.getTipo().name());
+        params.put("usuario", cadastro.getUsuario().getUsuario());
+        params.put("senha", cadastro.getUsuario().getSenha());
+        Log.d("Request", cadastro.getUsuario().getUsuario());
+
+        JSONObject parameters = new JSONObject(params);
+
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, BaseURL.URL.caminho + "cadastro/insereCadastro", parameters,
+                new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.i("Response", "SUCESSO : " + response);
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+
+
+
+
+        });
 
         queue.add(postRequest);
     }

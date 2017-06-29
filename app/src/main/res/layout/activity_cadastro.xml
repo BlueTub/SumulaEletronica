@@ -19,14 +19,15 @@
         android:layout_marginStart="19dp" />
 
     <EditText
+        android:id="@+id/txtNome"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtNome"
-        android:textSize="14sp"
+        android:layout_alignStart="@+id/tvNome"
         android:layout_below="@+id/tvNome"
-        android:layout_alignStart="@+id/tvNome" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        tools:text="eeeee" />
 
     <TextView
         android:text="CPF:"
@@ -38,26 +39,28 @@
         android:id="@+id/tvCPF" />
 
     <EditText
+        android:id="@+id/txtCPF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_below="@+id/tvCPF"
         android:layout_alignStart="@+id/tvCPF"
-        android:id="@+id/txtCPF"
-        android:textSize="14sp"
-        android:inputType="number" />
+        android:layout_below="@+id/tvCPF"
+        android:ems="10"
+        android:inputType="number"
+        android:text="123"
+        android:textSize="14sp" />
 
 
     <EditText
+        android:id="@+id/txtUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_marginBottom="160dp"
-        android:id="@+id/txtUsuario"
+        android:layout_alignEnd="@+id/txtNome"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/txtCPF"
-        android:layout_alignEnd="@+id/txtNome" />
+        android:layout_marginBottom="160dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="yyyyyyyyy" />
 
     <TextView
         android:text="Usuario:"
@@ -85,15 +88,16 @@
         android:id="@+id/tvSenha" />
 
     <EditText
+        android:id="@+id/txtSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtSenha"
-        android:textSize="14sp"
-        android:layout_below="@+id/tvSenha"
+        android:layout_alignEnd="@+id/txtUsuario"
         android:layout_alignStart="@+id/tvSenha"
-        android:layout_alignEnd="@+id/txtUsuario" />
+        android:layout_below="@+id/tvSenha"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="rrrrrrr"
+        android:textSize="14sp" />
 
     <Button
         android:text="Finalizar"
@@ -105,15 +109,16 @@
         android:layout_marginBottom="13dp" />
 
     <EditText
+        android:id="@+id/txtRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtRegistro"
-        android:textSize="14sp"
         android:layout_above="@+id/tvUsuario"
         android:layout_alignStart="@+id/tvUsuario"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="23231"
+        android:textSize="14sp" />
 
     <TextView
         android:text="Tipo de Cadastro"
