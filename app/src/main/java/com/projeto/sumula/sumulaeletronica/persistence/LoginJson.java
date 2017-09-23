@@ -33,7 +33,6 @@ public class LoginJson {
     public Usuario login(String usuario, String senha){
         requestQueue = Volley.newRequestQueue(context);
         u = new Usuario();
-
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, BaseURL.URL.caminho + "usuario/login/" + usuario + "/" + senha, null,
                 new Response.Listener<JSONObject>()
                 {
@@ -45,10 +44,8 @@ public class LoginJson {
                             u.setChave(response.getString("chave"));
                             u.setDataCriacao(response.getString("dataCriacao"));
                             u.setId(response.getLong("id"));
-                            Log.d("Response", u.getUsuario());
-                            Log.d("Response", response.toString());
                         }catch (Exception e){
-                            Log.d("Response", e.getMessage());
+                            Log.d("ERRO : ", e.getMessage());
                         }
 
                     }
@@ -61,6 +58,7 @@ public class LoginJson {
                     }
                 }
         );
+
         requestQueue.add(getRequest);
         return u;
     }

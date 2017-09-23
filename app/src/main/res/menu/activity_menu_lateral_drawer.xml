@@ -30,10 +30,6 @@
             android:id="@+id/nav_sentenca"
             android:icon="@drawable/judge"
             android:title="Sentença" />
-        <item
-            android:id="@+id/nav_partidas"
-            android:icon="@drawable/partidas"
-            android:title="Partidas" />
     </group>
 
     <item android:title="Ajuda">

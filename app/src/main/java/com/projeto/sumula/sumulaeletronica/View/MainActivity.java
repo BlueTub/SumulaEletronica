@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText txtUsuario;
     private EditText txtSenha;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginJson login = new LoginJson(MainActivity.this);
-                Usuario usuario;
+
                 usuario = login.login(txtUsuario.getText().toString(), txtSenha.getText().toString());
-                if (usuario.equals(null)){
-                    Toast.makeText(MainActivity.this, "Usuario não cadastrado", Toast.LENGTH_SHORT).show();
-                }else{
+                //if (usuario.equals(null)){
+                    //Toast.makeText(MainActivity.this, "Usuario não cadastrado", Toast.LENGTH_SHORT).show();
+               // }else{
                     Toast.makeText(MainActivity.this, usuario.getUsuario(), Toast.LENGTH_SHORT).show();
-                }
+                //}
 
             }
         });

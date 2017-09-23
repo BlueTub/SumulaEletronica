@@ -40,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:verticalSpacing="30dp"
+        android:numColumns="auto_fit"
         android:id="@+id/gvArbitro"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/etPesquisarArbitro"
