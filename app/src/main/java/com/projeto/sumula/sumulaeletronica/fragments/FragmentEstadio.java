@@ -21,6 +21,7 @@ import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.model.Estadio;
 import com.projeto.sumula.sumulaeletronica.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
@@ -28,7 +29,7 @@ import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentEstadio extends Fragment {
+public class FragmentEstadio extends Fragment implements Serializable{
 
     private FeatureCoverFlow coverFlow;
     private EstadioAdapterFragment adapter;

@@ -26,12 +26,13 @@ import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
 import com.projeto.sumula.sumulaeletronica.persistence.ClubeJson;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentClube extends Fragment {
+public class FragmentClube extends Fragment implements Serializable {
 
         private ImageButton imageButton;
         private EditText etPesquisa;

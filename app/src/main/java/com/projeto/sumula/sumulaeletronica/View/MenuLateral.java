@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
 import com.projeto.sumula.sumulaeletronica.fragments.FragmentEstadio;
@@ -27,19 +30,27 @@ public class MenuLateral extends AppCompatActivity
     NavigationView navigationView;
     Toolbar toolbar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_lateral);
 
-        FragmentClube fragmentClube = new FragmentClube();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.relativelayout_for_fragment,
-                        fragmentClube,
-                        fragmentClube.getTag())
-                .commit();
+        Intent it = getIntent();
+        Fragment fragment = (Fragment) it.getSerializableExtra("fragment");
+
+        if (fragment == null){
+            Toast.makeText(this, "Erro na passagem de parâmetro", Toast.LENGTH_SHORT).show();
+        }else{
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction()
+                    .replace(R.id.relativelayout_for_fragment,
+                            fragment,
+                            fragment.getTag())
+                    .commit();
+        }
+
+        //FragmentClube fragmentClube = new FragmentClube();
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -116,10 +127,6 @@ public class MenuLateral extends AppCompatActivity
         } else if (id == R.id.nav_estadio) {
             FragmentEstadio fragmentEstadio = new FragmentEstadio();
             transaction(fragmentEstadio);
-
-        } else if (id == R.id.nav_partidas) {
-            FragmentPartidas fragmentPartidas = new FragmentPartidas();
-            transaction(fragmentPartidas);
 
         } else if (id == R.id.nav_share) {
 

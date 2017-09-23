@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 ConnectivityManager manager = (ConnectivityManager)getSystemService(MainActivity.CONNECTIVITY_SERVICE);
                 if (isNetworkConnected(manager)){
-                    Intent intent = new Intent(MainActivity.this, MenuLateral.class);
+                    Intent intent = new Intent(MainActivity.this, ActivityPrincipal.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(MainActivity.this, "Falha ao encontrar rede", Toast.LENGTH_SHORT).show();
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public void transaction(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
-                .replace(R.id.relativelayout_for_fragment,
+                .replace(R.id.fragment_principal,
                         fragment,
                         fragment.getTag())
                 .commit();

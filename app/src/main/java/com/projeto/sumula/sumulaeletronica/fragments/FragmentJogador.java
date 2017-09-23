@@ -41,6 +41,8 @@ import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +50,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentJogador extends Fragment {
+public class FragmentJogador extends Fragment implements Serializable {
 
 //    private EditText etPesquisar;
 //    private AutoCompleteTextView completeTextView;

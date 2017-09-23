@@ -27,7 +27,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        tools:text="eeeee" />
+        tools:text="Pedro" />
 
     <TextView
         android:text="CPF:"
@@ -46,7 +46,7 @@
         android:layout_below="@+id/tvCPF"
         android:ems="10"
         android:inputType="number"
-        android:text="123"
+        android:text="12345678900"
         android:textSize="14sp" />
 
 
@@ -60,7 +60,7 @@
         android:layout_marginBottom="160dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="yyyyyyyyy" />
+        android:text="usuario@teste.com" />
 
     <TextView
         android:text="Usuario:"
