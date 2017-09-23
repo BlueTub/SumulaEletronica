@@ -1,4 +1,4 @@
-package com.projeto.sumula.sumulaeletronica.fragments;
+package com.projeto.sumula.sumulaeletronica.fragments.partida;
 
 
 import android.os.Bundle;

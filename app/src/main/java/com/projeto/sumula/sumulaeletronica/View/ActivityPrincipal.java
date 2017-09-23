@@ -7,11 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-
 import com.projeto.sumula.sumulaeletronica.R;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentEstadio;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
+import com.projeto.sumula.sumulaeletronica.fragments.clube.FragmentClube;
+import com.projeto.sumula.sumulaeletronica.fragments.estadio.FragmentEstadio;
+import com.projeto.sumula.sumulaeletronica.fragments.jogador.FragmentJogador;
 
 public class ActivityPrincipal extends AppCompatActivity {
 

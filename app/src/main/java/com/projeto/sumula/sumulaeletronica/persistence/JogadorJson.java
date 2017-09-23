@@ -1,9 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.persistence;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.JsonReader;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -15,23 +12,14 @@ import com.android.volley.toolbox.Volley;
 import com.projeto.sumula.sumulaeletronica.enumeration.BaseURL;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
-import com.projeto.sumula.sumulaeletronica.model.Clube;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
-import com.projeto.sumula.sumulaeletronica.model.ListaJogadores;
-import com.projeto.sumula.sumulaeletronica.services.JogadorService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by hury_ on 29/09/2016.

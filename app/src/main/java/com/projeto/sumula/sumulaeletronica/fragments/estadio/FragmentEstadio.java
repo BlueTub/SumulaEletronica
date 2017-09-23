@@ -1,21 +1,14 @@
-package com.projeto.sumula.sumulaeletronica.fragments;
+package com.projeto.sumula.sumulaeletronica.fragments.estadio;
 
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.LruCache;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ImageButton;
 
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.Volley;
 import com.projeto.sumula.sumulaeletronica.control.EstadioAdapterFragment;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 import com.projeto.sumula.sumulaeletronica.model.Estadio;

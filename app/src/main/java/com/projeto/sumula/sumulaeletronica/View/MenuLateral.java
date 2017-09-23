@@ -18,10 +18,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentClube;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentEstadio;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentJogador;
-import com.projeto.sumula.sumulaeletronica.fragments.FragmentPartidas;
+import com.projeto.sumula.sumulaeletronica.fragments.clube.FragmentClube;
+import com.projeto.sumula.sumulaeletronica.fragments.estadio.FragmentEstadio;
+import com.projeto.sumula.sumulaeletronica.fragments.jogador.FragmentJogador;
 import com.projeto.sumula.sumulaeletronica.fragments.arbitro.FragmentTabsArbitro;
 
 public class MenuLateral extends AppCompatActivity

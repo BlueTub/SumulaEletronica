@@ -1,4 +1,4 @@
-package com.projeto.sumula.sumulaeletronica.fragments;
+package com.projeto.sumula.sumulaeletronica.fragments.sumula;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.projeto.sumula.sumulaeletronica.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragementEstadioPesquisado extends Fragment {
+public class FragmentSumula extends Fragment {
 
 
-    public FragementEstadioPesquisado() {
+    public FragmentSumula() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class FragementEstadioPesquisado extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragement_estadio_pesquisado, container, false);
+        return inflater.inflate(R.layout.fragment_sumula, container, false);
     }
 
 }
