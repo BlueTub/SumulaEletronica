@@ -12,7 +12,7 @@
         android:id="@+id/textView3"
         android:layout_width="137dp"
         android:layout_height="37dp"
-        android:layout_x="118dp"
+        android:layout_x="115dp"
         android:layout_y="26dp"
         android:text="Bem Vindo!"
         android:textAlignment="center"
@@ -22,7 +22,7 @@
         android:id="@+id/btnCampeonatoPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="90dp"
+        android:layout_x="87dp"
         android:layout_y="65dp"
         app:srcCompat="@drawable/campeonato64" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/btnClubePrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="186dp"
+        android:layout_x="183dp"
         android:layout_y="66dp"
         app:srcCompat="@drawable/clube64" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="97dp"
+        android:layout_x="94dp"
         android:layout_y="147dp"
         android:text="Campeonatos"
         android:textSize="12sp" />
@@ -47,7 +47,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="211dp"
+        android:layout_x="208dp"
         android:layout_y="147dp"
         android:text="Clubes"
         android:textSize="12sp" />
@@ -56,7 +56,7 @@
         android:id="@+id/btnSumulaPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="188dp"
+        android:layout_x="185dp"
         android:layout_y="162dp"
         app:srcCompat="@drawable/sumula" />
 
@@ -64,7 +64,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="104dp"
+        android:layout_x="101dp"
         android:layout_y="247dp"
         android:text="Jogadores"
         android:textSize="12sp" />
@@ -73,7 +73,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="212dp"
+        android:layout_x="209dp"
         android:layout_y="244dp"
         android:text="Súmula"
         android:textSize="12sp" />
@@ -82,7 +82,7 @@
         android:id="@+id/btnEstadioPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="91dp"
+        android:layout_x="88dp"
         android:layout_y="262dp"
         app:srcCompat="@drawable/estadio64" />
 
@@ -90,7 +90,7 @@
         android:id="@+id/btnArbitroPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="189dp"
+        android:layout_x="186dp"
         android:layout_y="263dp"
         app:srcCompat="@drawable/arbitro64" />
 
@@ -98,7 +98,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="210dp"
+        android:layout_x="207dp"
         android:layout_y="344dp"
         android:text="Árbitros"
         android:textSize="12sp" />
@@ -107,7 +107,7 @@
         android:id="@+id/btnSentencaPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="93dp"
+        android:layout_x="90dp"
         android:layout_y="361dp"
         app:srcCompat="@drawable/julgamento64" />
 
@@ -115,7 +115,7 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="110dp"
+        android:layout_x="107dp"
         android:layout_y="442dp"
         android:text="Sentenças"
         android:textSize="12sp" />
@@ -124,7 +124,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="112dp"
+        android:layout_x="109dp"
         android:layout_y="344dp"
         android:text="Estádios"
         android:textSize="12sp" />
@@ -133,7 +133,7 @@
         android:id="@+id/btnJogadorPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="91dp"
+        android:layout_x="88dp"
         android:layout_y="162dp"
         app:srcCompat="@drawable/jogadores64" />
 

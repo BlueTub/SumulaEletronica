@@ -72,13 +72,4 @@ public class ActivityPrincipal extends AppCompatActivity {
             }
         });
     }
-
-    public void transaction(Fragment fragment) {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.sumula_layout_ficha_tecnica,
-                        fragment,
-                        fragment.getTag())
-                .commit();
-    }
 }

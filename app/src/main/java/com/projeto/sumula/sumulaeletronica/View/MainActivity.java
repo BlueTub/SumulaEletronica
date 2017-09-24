@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.projeto.sumula.sumulaeletronica.R;
@@ -18,9 +19,9 @@ import com.projeto.sumula.sumulaeletronica.persistence.LoginJson;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnTorcedor;
-    private Button btnCadastrar;
-    private Button btnLogin;
+    private ImageButton btnTorcedor;
+    private ImageButton btnCadastrar;
+    private ImageButton btnLogin;
     private EditText txtUsuario;
     private EditText txtSenha;
     private Usuario usuario;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         txtUsuario = (EditText) findViewById(R.id.etLogin);
         txtSenha = (EditText) findViewById(R.id.etSenha);
 
-        btnTorcedor = (Button) findViewById(R.id.btnTorcedor);
+        btnTorcedor = (ImageButton) findViewById(R.id.btnTorcedor);
         btnTorcedor.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 ConnectivityManager manager = (ConnectivityManager)getSystemService(MainActivity.CONNECTIVITY_SERVICE);
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
+        btnCadastrar = (ImageButton) findViewById(R.id.btnCadastrar);
         btnCadastrar.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 ConnectivityManager manager = (ConnectivityManager)getSystemService(MainActivity.CONNECTIVITY_SERVICE);
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnLogin = (ImageButton) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

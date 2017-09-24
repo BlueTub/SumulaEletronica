@@ -1,99 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.projeto.sumula.sumulaeletronica.View.MainActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/etLogin"
-        android:layout_below="@+id/tvLogin"
-        android:layout_alignParentStart="true" />
-
     <TextView
-        android:text="Login: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:id="@+id/tvLogin"
-        android:textSize="18sp"
-        android:layout_below="@+id/txtNomes"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Senha: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvSenha"
-        android:textSize="18sp"
-        android:layout_below="@+id/etLogin"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
-
-    <TextView
-        android:text="Juiz / CBF / Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/txtNomes"
-        android:textSize="24sp"
-        android:textAllCaps="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnLogin"
-        android:layout_alignBottom="@+id/etSenha"
-        android:layout_alignEnd="@+id/btnTorcedor" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_x="51dp"
+        android:layout_y="25dp"
+        android:elegantTextHeight="true"
+        android:text="Árbitro / CBF / Clube"
+        android:textAllCaps="true"
+        android:textSize="24sp" />
 
-    <Button
-        android:text="Torcedor"
+    <EditText
+        android:id="@+id/etLogin"
+        android:layout_width="302dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvLogin"
+        android:layout_x="28dp"
+        android:layout_y="98dp"
+        android:ems="10"
+        android:hint="Usuário"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/background_dark" />
+
+    <ImageButton
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="259dp"
+        android:layout_y="228dp"
+        app:srcCompat="@drawable/login48" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="278dp"
+        android:layout_y="296dp"
+        android:text="Entrar" />
+
+    <ImageButton
+        android:id="@+id/btnCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="26dp"
+        android:layout_y="227dp"
+        app:srcCompat="@drawable/usuario48" />
+
+    <EditText
+        android:id="@+id/etSenha"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvSenha"
+        android:layout_x="26dp"
+        android:layout_y="166dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:textColorLink="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="27dp"
+        android:layout_y="296dp"
+        android:text="Criar Conta" />
+
+    <ImageButton
         android:id="@+id/btnTorcedor"
         android:layout_width="wrap_content"
-        android:elevation="24dp"
-        android:textSize="18sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/etSenha"
-        android:layout_below="@+id/tvSenha"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnCadastrar"
-        android:text="Criar Conta"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_x="261dp"
+        android:layout_y="360dp"
+        app:srcCompat="@drawable/torcedor48" />
 
     <TextView
-        android:text="É torcedor ?"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvTorcedor"
-        android:textSize="30sp"
-        android:textStyle="normal|bold"
-        android:textAllCaps="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_x="256dp"
+        android:layout_y="427dp"
+        android:text="Sou Torcedor" />
 
-</RelativeLayout>
+</AbsoluteLayout>
