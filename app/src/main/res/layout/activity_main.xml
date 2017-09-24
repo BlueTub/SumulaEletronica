@@ -90,7 +90,7 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_x="256dp"
+        android:layout_x="254dp"
         android:layout_y="427dp"
         android:text="Sou Torcedor" />
 

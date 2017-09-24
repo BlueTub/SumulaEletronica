@@ -1,0 +1,259 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_sumula_cronologia_a"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.sumula.FragmentSumulaCronologiaA">
+
+
+    <EditText
+        android:id="@+id/editText24"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="273dp"
+        android:ems="10"
+        android:hint="Resultado"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText25"
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="226dp"
+        android:ems="10"
+        android:hint="Inicio"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="14dp"
+        android:layout_y="206dp"
+        android:text="1º Tempo"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="109dp"
+        android:layout_y="2dp"
+        android:text="Preenchimento Súmula"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="148dp"
+        android:layout_y="30dp"
+        android:text="Cronologia"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText17"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="152dp"
+        android:ems="10"
+        android:hint="Entrada 1º Tempo"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText20"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="85dp"
+        android:ems="10"
+        android:hint="Entrada 1º Tempo"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText16"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_x="163dp"
+        android:layout_y="152dp"
+        android:ems="10"
+        android:hint="Entrada 2º Tempo"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText19"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_x="163dp"
+        android:layout_y="85dp"
+        android:ems="10"
+        android:hint="Entrada 2º Tempo"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="15dp"
+        android:layout_y="133dp"
+        android:text="Equipe B"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="16dp"
+        android:layout_y="65dp"
+        android:text="Equipe A"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText23"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="395dp"
+        android:ems="10"
+        android:hint="Resultado Final"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText21"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="348dp"
+        android:ems="10"
+        android:hint="Inicio"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="14dp"
+        android:layout_y="328dp"
+        android:text="2º Tempo"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText29"
+        android:layout_width="288dp"
+        android:layout_height="79dp"
+        android:layout_x="12dp"
+        android:layout_y="498dp"
+        android:ems="10"
+        android:hint="Motivos acréscimos e atrasos"
+        android:inputType="textPersonName"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText27"
+        android:layout_width="142dp"
+        android:layout_height="wrap_content"
+        android:layout_x="162dp"
+        android:layout_y="227dp"
+        android:ems="10"
+        android:hint="Término"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText26"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_x="161dp"
+        android:layout_y="273dp"
+        android:ems="10"
+        android:hint="Acréscimo"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText18"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_x="161dp"
+        android:layout_y="394dp"
+        android:ems="10"
+        android:hint="Acréscimo"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText22"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_x="161dp"
+        android:layout_y="347dp"
+        android:ems="10"
+        android:hint="Término"
+        android:inputType="time"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editText28"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_x="13dp"
+        android:layout_y="442dp"
+        android:ems="10"
+        android:hint="Tiro Ponto Penal"
+        android:inputType="number"
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/btnAnteriorSumulaCronologia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="13dp"
+        android:layout_y="585dp"
+        app:srcCompat="@drawable/previous42" />
+
+    <ImageButton
+        android:id="@+id/btnProximoSumulaCronologia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="234dp"
+        android:layout_y="585dp"
+        app:srcCompat="@drawable/next42" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="242dp"
+        android:layout_y="647dp"
+        android:text="Próximo" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="22dp"
+        android:layout_y="645dp"
+        android:text="Anterior" />
+
+
+</AbsoluteLayout>
+
+</ScrollView>
