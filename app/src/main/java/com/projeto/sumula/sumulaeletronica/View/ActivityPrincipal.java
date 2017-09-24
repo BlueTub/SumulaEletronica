@@ -11,6 +11,7 @@ import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.fragments.clube.FragmentClube;
 import com.projeto.sumula.sumulaeletronica.fragments.estadio.FragmentEstadio;
 import com.projeto.sumula.sumulaeletronica.fragments.jogador.FragmentJogador;
+import com.projeto.sumula.sumulaeletronica.fragments.sumula.FragmentSumulaFichaTecnica;
 
 public class ActivityPrincipal extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class ActivityPrincipal extends AppCompatActivity {
     private ImageButton btnSentenca;
     private ImageButton btnArbitro;
     private ImageButton btnCampeonato;
+    private ImageButton btnSumula;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +60,23 @@ public class ActivityPrincipal extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnSumula = (ImageButton) findViewById(R.id.btnSumulaPrincipal);
+        btnSumula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentSumulaFichaTecnica fragmentSumulaFichaTecnica = new FragmentSumulaFichaTecnica();
+                Intent intent = new Intent(ActivityPrincipal.this, MenuLateral.class);
+                intent.putExtra("fragment", fragmentSumulaFichaTecnica);
+                startActivity(intent);
+            }
+        });
     }
 
     public void transaction(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
-                .replace(R.id.relativelayout_for_fragment,
+                .replace(R.id.sumula_layout_ficha_tecnica,
                         fragment,
                         fragment.getTag())
                 .commit();

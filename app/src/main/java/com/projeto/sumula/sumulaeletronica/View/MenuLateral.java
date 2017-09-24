@@ -22,6 +22,7 @@ import com.projeto.sumula.sumulaeletronica.fragments.clube.FragmentClube;
 import com.projeto.sumula.sumulaeletronica.fragments.estadio.FragmentEstadio;
 import com.projeto.sumula.sumulaeletronica.fragments.jogador.FragmentJogador;
 import com.projeto.sumula.sumulaeletronica.fragments.arbitro.FragmentTabsArbitro;
+import com.projeto.sumula.sumulaeletronica.fragments.sumula.FragmentSumulaFichaTecnica;
 
 public class MenuLateral extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,9 +48,6 @@ public class MenuLateral extends AppCompatActivity
                             fragment.getTag())
                     .commit();
         }
-
-        //FragmentClube fragmentClube = new FragmentClube();
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -126,6 +124,10 @@ public class MenuLateral extends AppCompatActivity
         } else if (id == R.id.nav_estadio) {
             FragmentEstadio fragmentEstadio = new FragmentEstadio();
             transaction(fragmentEstadio);
+
+        } else if (id == R.id.nav_sumula) {
+            FragmentSumulaFichaTecnica fragmentSumulaFichaTecnica = new FragmentSumulaFichaTecnica();
+            transaction(fragmentSumulaFichaTecnica);
 
         } else if (id == R.id.nav_share) {
 
