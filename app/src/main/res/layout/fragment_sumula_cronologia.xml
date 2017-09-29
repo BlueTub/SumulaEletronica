@@ -10,7 +10,7 @@
     android:id="@+id/layout_sumula_cronologia_a"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.sumula.FragmentSumulaCronologiaA">
+    tools:context=".fragments.sumula.FragmentSumulaCronologia">
 
 
     <EditText

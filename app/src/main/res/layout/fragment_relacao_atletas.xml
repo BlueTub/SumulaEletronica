@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.sumula.sumulaeletronica.fragments.sumula.FragmentRelacaoAtletas">
+
+    <ImageButton
+        android:id="@+id/btnPesquisarJogadorRelacaoAtletas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="293dp"
+        android:layout_y="48dp"
+        app:srcCompat="@drawable/search"
+        android:layout_marginEnd="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/lvRelacaoAtletas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalSpacing="20dp"
+        android:horizontalSpacing="10dp"
+        android:layout_marginTop="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

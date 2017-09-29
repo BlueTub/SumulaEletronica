@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/itemRelacaoNomeJogador"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|left"
+        android:textSize="20dp"
+        android:textIsSelectable="true"/>
+
+    <CheckBox
+        android:id="@+id/cbCartaoAmarelo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:checked="false"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <TextView
+        android:id="@+id/itemRelacaoCartaoAmarelo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/cbCartaoAmarelo"
+        android:textSize="12dp"
+        android:textIsSelectable="true"/>
+
+    <CheckBox
+        android:id="@+id/cbCartaoAmarelo2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:checked="false"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <TextView
+        android:id="@+id/itemRelacaoCartaoAmarelo2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|left"
+        android:layout_toRightOf="@id/cbCartaoAmarelo2"
+        android:textSize="12dp"
+        android:textIsSelectable="true"/>
+
+    <CheckBox
+        android:id="@+id/cbCartaoVermelho"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:checked="false"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <TextView
+        android:id="@+id/itemRelacaoCartaoVermelho"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|left"
+        android:layout_toRightOf="@id/cbCartaoVermelho"
+        android:textSize="12dp"
+        android:textIsSelectable="true"/>
+
+    <NumberPicker
+        android:id="@+id/npGols"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:id="@+id/itemRelacaoGols"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|left"
+        android:layout_toRightOf="@id/npGols"
+        android:textSize="12dp"
+        android:textIsSelectable="true"/>
+
+
+
+
+</LinearLayout>

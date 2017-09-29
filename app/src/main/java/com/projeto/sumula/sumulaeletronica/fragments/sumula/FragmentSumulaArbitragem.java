@@ -49,9 +49,9 @@ public class FragmentSumulaArbitragem extends Fragment implements Serializable{
         btnProximo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentSumulaCronologiaA fragmentSumulaCronologiaA = new FragmentSumulaCronologiaA();
+                FragmentSumulaCronologia fragmentSumulaCronologia = new FragmentSumulaCronologia();
                 Intent i = new Intent(getActivity(), MenuLateral.class);
-                i.putExtra("fragment", fragmentSumulaCronologiaA);
+                i.putExtra("fragment", fragmentSumulaCronologia);
                 startActivity(i);
             }
         });
