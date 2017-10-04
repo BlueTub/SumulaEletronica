@@ -1,6 +1,7 @@
 package com.projeto.sumula.sumulaeletronica.fragments.jogador;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,13 +9,16 @@ import android.support.v4.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.projeto.sumula.sumulaeletronica.R;
+import com.projeto.sumula.sumulaeletronica.View.MenuLateral;
 import com.projeto.sumula.sumulaeletronica.control.AdaptadorGridViewJogador;
 import com.projeto.sumula.sumulaeletronica.model.Jogador;
 import com.projeto.sumula.sumulaeletronica.persistence.JogadorJson;
@@ -104,6 +108,34 @@ public class FragmentJogador extends Fragment implements Serializable {
                 if (listaJogadores != null) {
                     gridView.setAdapter(new AdaptadorGridViewJogador(FragmentJogador.this.getActivity(), listaJogadores, imageLoader));
                 }
+            }
+        });
+
+        gridView.setOnItemClickListener( new GridView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                //TODO
+                Jogador jogador = (Jogador) parent.getAdapter().getItem(position);
+                String apelido = jogador.getApelido();
+                Toast.makeText(FragmentJogador.this.getActivity(), apelido, Toast.LENGTH_SHORT).show();
+
+                FragmentJogadorPesquisado fragmentJogadorPesquisado = new FragmentJogadorPesquisado();
+
+//                Bundle args = new Bundle();
+//                args.putSerializable("jogador" , jogador);
+//                fragmentJogadorPesquisado.setArguments(args);
+
+                Intent i = new Intent(getActivity(), MenuLateral.class);
+                i.putExtra("fragment", fragmentJogadorPesquisado);
+                i.putExtra("jogador", jogador);
+                startActivity(i);
+
+//                FragmentJogadorPesquisado fragmentJogadorPesquisado = new FragmentJogadorPesquisado();
+//                Intent i = new Intent(getActivity(), MenuLateral.class);
+//                i.putExtra("fragment", fragmentJogadorPesquisado);
+//                i.putExtra("jogador", jogador);
+//                startActivity(i);
+
             }
         });
 

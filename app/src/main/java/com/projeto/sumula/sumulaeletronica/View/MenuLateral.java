@@ -23,6 +23,7 @@ import com.projeto.sumula.sumulaeletronica.fragments.estadio.FragmentEstadio;
 import com.projeto.sumula.sumulaeletronica.fragments.jogador.FragmentJogador;
 import com.projeto.sumula.sumulaeletronica.fragments.arbitro.FragmentTabsArbitro;
 import com.projeto.sumula.sumulaeletronica.fragments.sumula.FragmentSumulaFichaTecnica;
+import com.projeto.sumula.sumulaeletronica.model.Jogador;
 
 public class MenuLateral extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,11 +38,18 @@ public class MenuLateral extends AppCompatActivity
 
         Intent it = getIntent();
         Fragment fragment = (Fragment) it.getSerializableExtra("fragment");
+        Jogador jogador = (Jogador) it.getSerializableExtra("jogador");
+
 
         if (fragment == null){
             Toast.makeText(this, "Erro na passagem de parâmetro", Toast.LENGTH_SHORT).show();
         }else{
             FragmentManager manager = getSupportFragmentManager();
+
+            Bundle args = new Bundle();
+            args.putSerializable("jogador" , jogador);
+            fragment.setArguments(args);
+
             manager.beginTransaction()
                     .replace(R.id.relativelayout_for_fragment,
                             fragment,

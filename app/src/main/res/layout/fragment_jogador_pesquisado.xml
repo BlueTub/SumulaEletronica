@@ -1,27 +1,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projeto.sumula.sumulaeletronica.fragments.jogador.FragmentJogadorPesquisado">
 
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/nivImgJogadorPesquisado"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@null"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dp"
+        android:visibility="gone" />
+
     <TextView
-        android:text="Jogadores"
+        android:id="@+id/tvTitleJogadorPesquisado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp" />
-
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:verticalSpacing="20dp"
-        android:id="@+id/gvJogadores"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp" />
+        android:layout_toRightOf="@+id/nivImgJogadorPesquisado"
+        android:textSize="30sp" />
 
 
 </RelativeLayout>

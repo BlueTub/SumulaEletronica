@@ -3,13 +3,14 @@ package com.projeto.sumula.sumulaeletronica.model;
 import com.projeto.sumula.sumulaeletronica.enumeration.PosicaoJogador;
 import com.projeto.sumula.sumulaeletronica.enumeration.UF;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by hury_ on 22/09/2016.
 */
 
-public class Jogador {
+public class Jogador implements Serializable{
 
     private int id;
     private String nome;
