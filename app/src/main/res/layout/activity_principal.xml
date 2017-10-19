@@ -112,15 +112,6 @@
         app:srcCompat="@drawable/julgamento64" />
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="107dp"
-        android:layout_y="442dp"
-        android:text="Sentenças"
-        android:textSize="12sp" />
-
-    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -136,5 +127,31 @@
         android:layout_x="88dp"
         android:layout_y="162dp"
         app:srcCompat="@drawable/jogadores64" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="206dp"
+        android:layout_y="443dp"
+        android:text="Sentenças"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="190dp"
+        android:layout_y="363dp"
+        app:srcCompat="@drawable/sentenca64" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="101dp"
+        android:layout_y="444dp"
+        android:text="Julgamentos"
+        android:textSize="12sp" />
 
 </AbsoluteLayout>

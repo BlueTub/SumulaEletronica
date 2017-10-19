@@ -1,0 +1,148 @@
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projeto.sumula.sumulaeletronica.fragments.sentenca.FragmentSentenca">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="147dp"
+        android:layout_y="8dp"
+        android:text="Sentença"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="16dp"
+        android:layout_y="67dp"
+        android:text="Valor Pena :" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="104dp"
+        android:layout_y="66dp"
+        android:text="R$ 10.000,00" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="17dp"
+        android:layout_y="97dp"
+        android:text="Pontos : " />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="17dp"
+        android:layout_y="126dp"
+        android:text="Data Sentença :" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="125dp"
+        android:layout_y="126dp"
+        android:text="10/10/2017" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="18dp"
+        android:layout_y="155dp"
+        android:text="Motivo : " />
+
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="18dp"
+        android:layout_y="208dp"
+        android:text="Descrição :" />
+
+    <TextView
+        android:id="@+id/textView54"
+        android:layout_width="239dp"
+        android:layout_height="wrap_content"
+        android:layout_x="98dp"
+        android:layout_y="208dp"
+        android:text="Foi feita uma agressão ao próprio técnico do clube no qual exerce sua função" />
+
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="225dp"
+        android:layout_height="48dp"
+        android:layout_x="100dp"
+        android:layout_y="155dp"
+        android:text="Agressão ao colega de trabalho durante uma partida" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="17dp"
+        android:layout_y="273dp"
+        android:text="Jogos a Cumprir :" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="140dp"
+        android:layout_y="272dp"
+        android:text="3" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="17dp"
+        android:layout_y="302dp"
+        android:text="Já Cumpridos :" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="140dp"
+        android:layout_y="303dp"
+        android:text="1" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="102dp"
+        android:layout_y="337dp"
+        android:text="Sentenças Anteriores"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lvSentencas"
+        android:layout_width="339dp"
+        android:layout_height="137dp"
+        android:layout_x="24dp"
+        android:layout_y="364dp" />
+
+    <TextView
+        android:id="@+id/textView55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="80dp"
+        android:layout_y="96dp"
+        android:text="3" />
+</AbsoluteLayout>

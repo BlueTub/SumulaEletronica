@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,11 +15,254 @@
         android:visibility="gone" />
 
     <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerCampeonato"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/nivImgJogadorPesquisado"
+        android:layout_x="10dp"
+        android:layout_y="207dp"
+        android:text="Situação :"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvTitleJogadorPesquisado"
+        android:layout_marginEnd="99dp"
+        android:layout_marginTop="12dp"
+        android:layout_x="215dp"
+        android:layout_y="41dp"
+        android:text="Inscrição :" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView28"
+        android:layout_below="@+id/textView28"
+        android:layout_marginTop="14dp"
+        android:layout_x="215dp"
+        android:layout_y="95dp"
+        android:text="Campeonato : " />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView27"
+        android:layout_below="@+id/textView27"
+        android:layout_x="215dp"
+        android:layout_y="60dp"
+        android:text="01189756394" />
+
+    <TextView
         android:id="@+id/tvTitleJogadorPesquisado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/nivImgJogadorPesquisado"
-        android:textSize="30sp" />
+        android:layout_x="215dp"
+        android:layout_y="10dp"
+        android:text="ll"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerCampeonato"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/textView29"
+        android:layout_below="@+id/textView29"
+        android:layout_x="209dp"
+        android:layout_y="112dp" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="11dp"
+        android:layout_y="231dp"
+        android:text="Idade :"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="10dp"
+        android:layout_y="255dp"
+        android:text="Camisa :"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="11dp"
+        android:layout_y="279dp"
+        android:text="Posição :"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="303dp"
+        android:text="Naturalidade :"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView30"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/textView30"
+        android:layout_x="110dp"
+        android:layout_y="208dp"
+        android:text="Suspenso"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="111dp"
+        android:layout_y="231dp"
+        android:text="26"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="112dp"
+        android:layout_y="256dp"
+        android:text="10"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="112dp"
+        android:layout_y="280dp"
+        android:text="Meia"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="113dp"
+        android:layout_y="302dp"
+        android:text="Brasileiro"
+        android:textAlignment="center" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView27"
+        android:layout_alignTop="@+id/textView31"
+        android:layout_marginEnd="21dp"
+        android:layout_x="194dp"
+        android:layout_y="204dp"
+        app:srcCompat="@drawable/inscricao48" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageButton9"
+        android:layout_toEndOf="@+id/imageButton6"
+        android:layout_x="203dp"
+        android:layout_y="267dp"
+        android:text="Contrato" />
+
+    <ImageButton
+        android:id="@+id/btnJu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="194dp"
+        android:layout_y="308dp"
+        app:srcCompat="@drawable/julgamento48" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="189dp"
+        android:layout_y="371dp"
+        android:text="Julgamentos" />
+
+    <ImageButton
+        android:id="@+id/btnSentencaJogadorPesquisado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="284dp"
+        android:layout_y="308dp"
+        app:srcCompat="@drawable/sentenca48" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="289dp"
+        android:layout_y="369dp"
+        android:text="Sentenças" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageButton6"
+        android:layout_toEndOf="@+id/imageButton6"
+        android:layout_x="284dp"
+        android:layout_y="204dp"
+        app:srcCompat="@drawable/contrato48" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageButton6"
+        android:layout_below="@+id/imageButton6"
+        android:layout_x="292dp"
+        android:layout_y="266dp"
+        android:text="Inscrição" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="148dp"
+        android:layout_height="122dp"
+        android:layout_x="23dp"
+        android:layout_y="350dp"
+        app:srcCompat="@drawable/flamengo" />
+
+    <TextView
+        android:id="@+id/textView64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="63dp"
+        android:layout_y="476dp"
+        android:text="Flamengo" />
+
+    <TextView
+        android:id="@+id/textView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="76dp"
+        android:layout_y="330dp"
+        android:text="Clube"
+        android:textStyle="bold" />
 
 
-</RelativeLayout>
+</AbsoluteLayout>
