@@ -64,14 +64,17 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                LoginJson login = new LoginJson(MainActivity.this);
-
-                usuario = login.login(txtUsuario.getText().toString(), txtSenha.getText().toString());
-                //if (usuario.equals(null)){
-                    //Toast.makeText(MainActivity.this, "Usuario não cadastrado", Toast.LENGTH_SHORT).show();
-               // }else{
-                    Toast.makeText(MainActivity.this, usuario.getUsuario(), Toast.LENGTH_SHORT).show();
+//                LoginJson login = new LoginJson(MainActivity.this);
+//
+//                usuario = login.login(txtUsuario.getText().toString(), txtSenha.getText().toString());
+//                //if (usuario.equals(null)){
+//                    //Toast.makeText(MainActivity.this, "Usuario não cadastrado", Toast.LENGTH_SHORT).show();
+//               // }else{
+//                    Toast.makeText(MainActivity.this, usuario.getUsuario(), Toast.LENGTH_SHORT).show();
                 //}
+
+                Intent intent = new Intent(MainActivity.this, ActivityPrincipal.class);
+                startActivity(intent);
 
             }
         });

@@ -1,5 +1,6 @@
 package com.projeto.sumula.sumulaeletronica.View;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.projeto.sumula.sumulaeletronica.R;
 import com.projeto.sumula.sumulaeletronica.enumeration.Tipo;
 import com.projeto.sumula.sumulaeletronica.model.Cadastro;
 import com.projeto.sumula.sumulaeletronica.model.Usuario;
 import com.projeto.sumula.sumulaeletronica.persistence.CadastroJson;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,6 +85,11 @@ public class ActivityCadastro extends AppCompatActivity {
 
                 CadastroJson cadastroJson = new CadastroJson(ActivityCadastro.this);
                 cadastroJson.realizarCadastro(cadastro);
+
+                Toast.makeText(ActivityCadastro.this, "Cadastro realizado com sucesso! Bem vindo " + txtNome.getText().toString(), Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(ActivityCadastro.this, ActivityPrincipal.class);
+                startActivity(intent);
 
             }
         });

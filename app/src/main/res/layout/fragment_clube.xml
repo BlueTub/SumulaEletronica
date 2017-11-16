@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context="com.projeto.sumula.sumulaeletronica.fragments.clube.FragmentClube">
 
+    <EditText
+        android:id="@+id/editText15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nome Clube"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:layout_above="@+id/gvClubes"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_alignEnd="@+id/tvEscolha" />
+
     <TextView
         android:text="Escolha seu Time"
         android:layout_width="wrap_content"
@@ -25,15 +38,15 @@
         android:horizontalSpacing="10dp"
         android:layout_marginTop="27dp"
         android:layout_below="@+id/imPesquisaClube"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/editText15" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_menu_search"
         android:id="@+id/imPesquisaClube"
-        android:layout_marginTop="28dp"
-        android:layout_marginStart="13dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
         android:layout_below="@+id/tvEscolha"
         android:layout_toEndOf="@+id/tvEscolha" />
 
